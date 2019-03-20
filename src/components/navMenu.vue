@@ -14,7 +14,8 @@
             <router-link to="/enzh">中英文</router-link>|
             <router-link to="/xiazai">下载</router-link>|
             <router-link to="/erweima">二维码</router-link>|
-            <router-link to="/flex">flex布局</router-link>
+            <router-link to="/flex">flex布局</router-link>|
+            <router-link to="/flex">导航</router-link>
         </div>
 </template>
 <style lang="less">
