@@ -10,7 +10,8 @@ Vue.use(VueResource)
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
-
+// 公共样式
+import './assets/less/common.less'
 // 自定义图标
 import "./assets/iconfont/iconfont.css";
 // 中英文国际化

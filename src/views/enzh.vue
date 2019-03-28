@@ -15,7 +15,7 @@ export default {
     data() {
         return {
             isIn: false,
-            lang:this.$i18n.locale
+            lang:this.$i18n.locale || 'zh'
         }
     },
     mounted() {
