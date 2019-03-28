@@ -14,21 +14,18 @@ Vue.use(ElementUI);
 // 自定义图标
 import "./assets/iconfont/iconfont.css";
 // 中英文国际化
-import VueI18n from 'vue-i18n'
-Vue.use(VueI18n)
-const i18n = new VueI18n({
- // locale: getCookie('PLAY_LANG','zh'), // 语言标识
- locale:'zh',
- messages: {
-  'zh': require('./i18n/lang/zh'),
-  'en': require('./i18n/lang/en')
- }
-})
+import i18n from './i18n/lang/index.js'
+
+Vue.use(i18n)
 
 // 词云插件
 import echarts from 'echarts'
 Vue.prototype.$echarts = echarts
 require('echarts-wordcloud')
+
+// 全局过滤器
+// import filters from './filter';
+// Object.keys(filters).forEach(k => Vue.filter(k, filters[k]));
 
 Vue.config.productionTip = false
 

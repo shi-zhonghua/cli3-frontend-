@@ -19,6 +19,7 @@ const iconfont = () => import(  "@/views/iconfont.vue");
 const xiazai = () => import( "@/views/xiazai.vue");
 const erweima = () => import(  "@/views/erweima.vue");
 const flex = () => import( "@/views/flex.vue");
+const filter = () => import( "@/views/filter.vue");
 
 
 Vue.use(Router)
@@ -130,6 +131,12 @@ const routes = [
             component: flex,
             meta: {
                 title: 'flex布局'
+            }
+        },{
+            path: '/filter',
+            component: filter,
+            meta: {
+                title: '过滤器'
             }
         }]
     }

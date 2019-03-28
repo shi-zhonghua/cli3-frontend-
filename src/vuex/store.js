@@ -7,6 +7,9 @@ export default new Vuex.Store({
     state: {
         LOADING: false
     },
+    acitons:{
+
+    },
     mutations: {
         showLoading(state) { 
             state.LOADING = true 
@@ -14,6 +17,9 @@ export default new Vuex.Store({
         hideLoading(state) { 
             state.LOADING = false 
         }
+    },
+    getters:{
+
     }
 
 })
