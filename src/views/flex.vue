@@ -21,9 +21,9 @@
     justify-content: space-between;//项目位于各行之间留有空白的容器内
     flex-wrap: wrap;//换行
     .flex-child{
-    	width: 45%;
+    	width: 49%;
     	height: 200px;
-    	margin: 20px;
+    	margin-bottom: 20px;
     	background: #ccc;
     }
 }

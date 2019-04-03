@@ -1,7 +1,19 @@
 <template>
     <div class="echarts-wrap">
+       <!-- 柱状图 -->
         <div id="lineEchart" style="width:400px;height: 400px;"></div>
+        <!-- 放大 折线图-->
+        <i class="el-icon-rank" title="放大"  @click="dialogVisible = true"></i>
+        <el-dialog title="图表" :visible.sync="dialogVisible" width="70%" >
+            <span style="height: 300px; display: block;">
+                <echarts-zhexiantu></echarts-zhexiantu>
+            </span>
+            <span slot="footer" class="dialog-footer">
+          </span>
+        </el-dialog>
+        <!-- 折线图 -->
         <echarts-zhexiantu></echarts-zhexiantu>
+        <!-- 渐变 -->
         <echart-jianbian></echart-jianbian>
     </div>
 </template>
@@ -16,6 +28,7 @@ export default {
     },
     data() {
         return {
+            dialogVisible: false,
             data1: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
             data2: [120, 200, 150, 80, 70, 110, 130]
         }
@@ -25,6 +38,9 @@ export default {
 
     },
     methods: {
+        open() {
+
+        },
         option(data1, data2) {
             return {
                 xAxis: {

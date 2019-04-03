@@ -15,8 +15,8 @@
             <router-link to="/xiazai">下载</router-link>|
             <router-link to="/erweima">二维码</router-link>|
             <router-link to="/flex">flex布局</router-link>|
-            <router-link to="/flex">导航</router-link>|
-            <router-link to="/filter">过滤器</router-link>
+            <router-link to="/filter">过滤器</router-link>|
+            <router-link to="/photo">图片放大</router-link>
         </div>
 </template>
 <style lang="less">

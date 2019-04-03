@@ -20,6 +20,7 @@ const xiazai = () => import( "@/views/xiazai.vue");
 const erweima = () => import(  "@/views/erweima.vue");
 const flex = () => import( "@/views/flex.vue");
 const filter = () => import( "@/views/filter.vue");
+const photo = () => import( "@/views/photo.vue");
 
 
 Vue.use(Router)
@@ -137,6 +138,12 @@ const routes = [
             component: filter,
             meta: {
                 title: '过滤器'
+            }
+        },{
+            path: '/photo',
+            component: photo,
+            meta: {
+                title: '图片放大'
             }
         }]
     }

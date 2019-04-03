@@ -28,6 +28,11 @@ require('echarts-wordcloud')
 // import filters from './filter';
 // Object.keys(filters).forEach(k => Vue.filter(k, filters[k]));
 
+// 图片放大
+import preview from 'vue-photo-preview'
+import 'vue-photo-preview/dist/skin.css'
+Vue.use(preview)
+
 Vue.config.productionTip = false
 
 

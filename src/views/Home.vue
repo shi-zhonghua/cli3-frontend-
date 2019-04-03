@@ -5,9 +5,9 @@
         </div>
         <img alt="Vue logo" src="../assets/logo.png">
         <HelloWorld msg="Welcome to Your Vue.js App" />
-        <div v-for="item in yearArr">{{item}}</div>
+        <div v-for="item in yearArr" :key="item">{{item}}</div>
         {{yearArr}}
-        <el-button type="primary" class="sub-btn" @click="cur">登录</el-button>
+        <el-button type="primary" class="sub-btn" @click="cur">获取return键</el-button>
     </div>
 </template>
 <script>
@@ -54,7 +54,10 @@ export default {
             this.yearArr.push(onYear)
         },
         cur() {
-            console.log(111)
+            this.$message({
+          message: '警告哦，这是一条警告消息',
+          type: 'warning'
+        })
         }
     }
 
