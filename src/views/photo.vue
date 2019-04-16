@@ -6,7 +6,7 @@
        2、引入 import 'vue-photo-preview/dist/skin.css'<br/>
         Vue.use(preview)<br/>
         <p v-for="(item,index) in imgUrl" :key="index">
-            <img :src="item.img" preview="0" alt=""/>
+            <img :src="item.img" :preview="index" alt=""/>
 		</p>
         <p>
            <img src="../assets/imgages/1.jpg" preview="1" alt=""/>

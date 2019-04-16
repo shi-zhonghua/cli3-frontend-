@@ -19,7 +19,7 @@ export default {
     },
     data() {
         return {
-            city:'',
+            city: '',
             cityArr: {
                 province: '',
                 city: '',
@@ -42,8 +42,29 @@ export default {
             this.cityArr.area = area.value
         },
         output() {
-            this.city="你选择了"+this.cityArr.province+this.cityArr.city+this.cityArr.area
-            this.$message.error("你选择了"+this.cityArr.province+this.cityArr.city+this.cityArr.area)
+            if (!this.cityArr.province) {
+                this.$message({
+                    message: '请选择省份',
+                    type: 'warning'
+                })
+                return false
+            }
+            if (!this.cityArr.city) {
+                this.$message({
+                    message: '请选择市',
+                    type: 'warning'
+                })
+                return false
+            }
+            if (!this.cityArr.area) {
+                this.$message({
+                    message: '请选择区',
+                    type: 'warning'
+                })
+                return false
+            }
+            this.city = "你选择了" + this.cityArr.province + this.cityArr.city + this.cityArr.area
+            this.$message.error("你选择了" + this.cityArr.province + this.cityArr.city + this.cityArr.area)
             // console.log(this.cityArr)
 
 

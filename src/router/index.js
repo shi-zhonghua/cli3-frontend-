@@ -21,6 +21,8 @@ const erweima = () => import(  "@/views/erweima.vue");
 const flex = () => import( "@/views/flex.vue");
 const filter = () => import( "@/views/filter.vue");
 const photo = () => import( "@/views/photo.vue");
+const emit = () => import( "@/views/emit.vue");
+const freeTreeMenu = () => import( "@/views/freeTreeMenu.vue");
 
 
 Vue.use(Router)
@@ -144,6 +146,18 @@ const routes = [
             component: photo,
             meta: {
                 title: '图片放大'
+            }
+        },{
+            path: '/emit',
+            component: emit,
+            meta: {
+                title: '父与子传值'
+            }
+        },{
+            path: '/freeTreeMenu',
+            component: freeTreeMenu,
+            meta: {
+                title: '树形结构'
             }
         }]
     }

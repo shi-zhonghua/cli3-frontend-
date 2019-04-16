@@ -16,7 +16,9 @@
             <router-link to="/erweima">二维码</router-link>|
             <router-link to="/flex">flex布局</router-link>|
             <router-link to="/filter">过滤器</router-link>|
-            <router-link to="/photo">图片放大</router-link>
+            <router-link to="/photo">图片放大</router-link>|
+            <router-link to="/emit">emit传值</router-link>|
+            <router-link to="/freeTreeMenu">tree树形结构</router-link>
         </div>
 </template>
 <style lang="less">
