@@ -5,7 +5,7 @@
             <el-button size="mini" @click="inputShow">显示/隐藏</el-button>
         </div>
         <el-button type="primary" @click="show" class="but">切换显示/隐藏</el-button>
-        <div id="myChart-ciyun2" v-show="isShow" :style="{width: '300px', height: '300px',float:'left'}"></div>
+        <div id="myChart" v-show="isShow" :style="{width: '300px', height: '300px',float:'left'}"></div>
     </div>
 </template>
 <script>
@@ -15,7 +15,33 @@ export default {
         return {
             isShow: true,
             textShow: false,
-        
+            dataList: [{
+                    name: '词语1',
+                    value: 10000,
+                   
+                },
+                {
+                    name: '词语2',
+                    value: 6181,
+                },
+                {
+                    name: '词语3',
+                    value: 4386,
+                },
+                {
+                    name: '词语4',
+                    value: 4386,
+                },
+                {
+                    name: '词语5',
+                    value: 4386,
+                },
+                {
+                    name: '词语6',
+                    value: 4386,
+                }
+
+            ]
         }
     },
     mounted() {
@@ -34,21 +60,12 @@ export default {
             this.$nextTick(function() {
                 this.$refs.text.focus()
             })
+
+
         },
         drawLine() {
-            let charData=[]
-            for(let i=0;i<30;i++){
-                charData.push(i)
-            }
-            let listOjb=[]
-            for(let i=0;i<charData.length;i++){
-                listOjb.push({
-                    name: charData[i],
-                    value: i,
-                })
-            }
             // 基于准备好的dom，初始化echarts实例
-            let myChart = this.$echarts.init(document.getElementById('myChart-ciyun2'))
+            let myChart = this.$echarts.init(document.getElementById('myChart'))
             // 绘制图表
             let option = {
                 title: {
@@ -87,7 +104,7 @@ export default {
                             shadowColor: '#333' //阴影颜色
                         }
                     },
-                    data: listOjb
+                    data: this.dataList
                 }]
             }
 
