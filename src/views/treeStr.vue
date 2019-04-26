@@ -1,6 +1,22 @@
 <template>
     <div class="tree">
         <tree-children :list="treeData" :handlVal="handItem"></tree-children>
+        <div v-if="isShow">
+            <!-- {{currentData}} -->
+            <table >
+                <tr>
+                    <td>日期</td>
+                    <td>名称</td>
+                    <td>描述</td>
+                </tr>
+                <tr>
+                    <td>{{currentData.createDate | formatDate}}</td>
+                    <td>{{currentData.label}}</td>
+                    <td>{{currentData.desc}}</td>
+                    <td><el-button @click="create">添加</el-button></td>
+                </tr>
+            </table>
+        </div>
     </div>
 </template>
 <script>
@@ -23,13 +39,13 @@ var myData2 = [{
     "browserCount": 0,
     "mobileIcon": null,
     "zgProjectId": 203,
-    "children":[
-    	{
-    		"id":3621,
-    		"label":'text-1-1',
-    		"code":'text-1-1'
-    	}
-    ]
+    "children": [{
+        "id": 3621,
+        "label": 'text-1-1',
+        "code": 'text-1-1',
+        "desc": 'text-1-1',
+        "createDate": "2019-04-18T12:50:37.000Z"
+    }]
 }, {
     "id": 371,
     "label": "text-2",
@@ -90,6 +106,7 @@ var myData1 = [{
     "zgProjectId": 203,
     "children": myData2
 }]
+import { formatDate } from '../filter/date.js'
 import treeChildren from './treeChildren.vue'
 export default {
     components: {
@@ -97,15 +114,32 @@ export default {
     },
     data() {
         return {
-            treeData: myData1
+            treeData: myData1,
+            currentData: {},
+            isShow:false
         }
     },
     mounted() {
+    	// this.handItem()
     },
     methods: {
-    	handItem(item){
-    		console.log(item.label,item.id)
-    	}
+        handItem(item) {
+            // console.log(item.label, item.id)
+            // console.log(item)
+            this.currentData = item,
+            this.isShow=true
+        },
+        create(){
+        	console.log(this.currentData)
+        }
+    },
+    filters: {
+        formatDate(time) {
+            let date = new Date(time)
+            return formatDate(date, 'yyyy-MM-dd hh:mm')
+        },
+
+
     }
 }
 </script>

@@ -4,7 +4,7 @@
             <div class="item-name" @click="toggle(item)">
                 <span>{{item.label}}</span>
             </div>
-            <div v-show="open" v-if="item.children" class="children-item">
+            <div  v-if="item.children" class="children-item">
                 <tree-children :list="item.children" :handlVal="handlVal"></tree-children>
             </div>
         </div>
@@ -23,7 +23,7 @@ export default {
     },
     data() {
         return {
-            open: true,
+            // open: true,
             isFolder: true
         }
 

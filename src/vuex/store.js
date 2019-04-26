@@ -5,10 +5,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        LOADING: false
+        LOADING: false,
+        currentCity:'北京'
     },
-    acitons:{
 
+    actions:{
+        acitonsCity(context,city){
+            context.commit('mutationsCity',city)
+        }
     },
     mutations: {
         showLoading(state) { 
@@ -16,10 +20,15 @@ export default new Vuex.Store({
         },
         hideLoading(state) { 
             state.LOADING = false 
+        },
+        mutationsCity(state,city){
+            state.currentCity=city
         }
     },
     getters:{
-
+        currentCity(state){
+            return state.currentCity
+        }
     }
 
 })

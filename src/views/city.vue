@@ -34,6 +34,8 @@ export default {
     methods: {
         onChangeProvince(province) {
             this.cityArr.province = province.value
+            this.$store.dispatch('acitonsCity',province.value)
+
         },
         onChangeCity(city) {
             this.cityArr.city = city.value
@@ -64,7 +66,7 @@ export default {
                 return false
             }
             this.city = "你选择了" + this.cityArr.province + this.cityArr.city + this.cityArr.area
-            this.$message.error("你选择了" + this.cityArr.province + this.cityArr.city + this.cityArr.area)
+            this.$message.warning("你选择了" + this.cityArr.province + this.cityArr.city + this.cityArr.area)
             // console.log(this.cityArr)
 
 
