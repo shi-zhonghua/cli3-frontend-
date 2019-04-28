@@ -24,9 +24,7 @@ export default {
     methods: {
         changeLanguage() {
             this.isIn = !this.isIn
-
             let lang = this.$i18n.locale === "zh" ? "en" : "zh";
-            sessionStorage.setItem('lang',lang)
             this.$i18n.locale = lang;
         },
     }

@@ -15,7 +15,6 @@ import './assets/less/common.less'
 import "./assets/iconfont/iconfont.css";
 // 中英文国际化
 import i18n from './i18n/lang/index.js'
-
 Vue.use(i18n)
 
 // 词云插件
@@ -23,9 +22,7 @@ import echarts from 'echarts'
 Vue.prototype.$echarts = echarts
 require('echarts-wordcloud')
 
-
 // 全局过滤器
-
 import filters from './filter'
 Object.keys(filters).forEach(key => {
     Vue.filter(key, filters[key])
@@ -37,18 +34,16 @@ Vue.filter('date', function(value, formatString) {
     formatString = formatString || 'YYYY-MM-DD';
     return moment(value).format(formatString);
 })
-
+Vue.filter('dateTime', function(value, formatString) {
+    formatString = formatString || 'YYYY-MM-DD HH:mm';
+    return moment(value).format(formatString);
+})
 
 // 图片放大
 import preview from 'vue-photo-preview'
 import 'vue-photo-preview/dist/skin.css'
 Vue.use(preview)
-
-
 Vue.config.productionTip = false
-
-
-
 new Vue({
     router,
     store,

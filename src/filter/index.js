@@ -31,17 +31,98 @@ let nameHide = name => {
     }
 }
 
-// 金额保留两位小数
+/**
+ *  @description 格式化金额
+ * @param value：要格式化的数字
+ */
+
 let formatMoney = (value) => {
     if (value) {
         value = Number(value);
         return '￥ ' + value.toFixed(2);
     }
-};
+}
+
+
+let formatNumber = (num) => {
+    if (num >= 1000000) {
+        return (num / 1000000).toFixed(1).replace(/.0$/, '') + 'w';
+    }
+    if (num >= 1000) {
+        return (num / 1000).toFixed(1).replace(/.0$/, '') + 'k';
+    }
+    return num;
+}
+
+/**
+ * @description 格式化金额
+ * @param number：要格式化的数字
+ * @param decimals：保留几位小数 默认0位
+ * @param decPoint：小数点符号 默认.
+ * @param thousandsSep：千分位符号 默认为,
+ */
+
+let formatMicrometer = (number, decimals = 2, decPoint = '.', thousandsSep = ',') => {
+    number = (number + '').replace(/[^0-9+-Ee.]/g, '')
+    let n = !isFinite(+number) ? 0 : +number
+    let prec = !isFinite(+decimals) ? 0 : Math.abs(decimals)
+    let sep = (typeof thousandsSep === 'undefined') ? ',' : thousandsSep
+    let dec = (typeof decPoint === 'undefined') ? '.' : decPoint
+    let s = ''
+    let toFixedFix = function(n, prec) {
+        let k = Math.pow(10, prec)
+        return '' + Math.ceil(n * k) / k
+    }
+    s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.')
+    let re = /(-?\d+)(\d{3})/
+    while (re.test(s[0])) {
+        s[0] = s[0].replace(re, '$1' + sep + '$2')
+    }
+    if ((s[1] || '').length < prec) {
+        s[1] = s[1] || ''
+        s[1] += new Array(prec - s[1].length + 1).join('0')
+    }
+    return s.join(dec)
+}
+
+/**
+ * @description 首字符大写
+ * @param number:要格式化的字符
+ */
+
+let formatToLowerCase = (number) => {
+    if (number) {
+        var i, ss = number.toLowerCase().split(/\s+/);
+        for (i = 0; i < ss.length; i++) {
+            ss[i] = ss[i].slice(0, 1).toUpperCase() + ss[i].slice(1);
+        }
+        return ss.join(' ');
+    }
+}
+
+/**
+ * @description 字符转换成大写
+ * @param number:要格式化的字符
+ */
+
+let formatToLowerCaseAll = (number) => {
+    if (number) {
+        var i, ss = number.toLowerCase().split(/\s+/);
+        for (i = 0; i < ss.length; i++) {
+            ss[i] = ss[i].slice(0).toUpperCase();
+        }
+        return ss.join(' ');
+    }
+}
+
 export default {
     sexIdcardFilter,
     IDcardHide,
     telHide,
     nameHide,
-    formatMoney
+    formatMoney,
+    formatNumber,
+    formatMicrometer,
+    formatToLowerCase,
+    formatToLowerCaseAll
 }
