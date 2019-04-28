@@ -2,11 +2,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index'
 import store from './vuex/store'
-// import getCookie './cookie.js'
 /*引入资源请求插件*/
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
-// element-ui 插件
+    // element-ui 插件
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
@@ -24,9 +23,21 @@ import echarts from 'echarts'
 Vue.prototype.$echarts = echarts
 require('echarts-wordcloud')
 
+
 // 全局过滤器
-// import filters from './filter';
-// Object.keys(filters).forEach(k => Vue.filter(k, filters[k]));
+
+import filters from './filter'
+Object.keys(filters).forEach(key => {
+    Vue.filter(key, filters[key])
+})
+
+// 日期过滤
+import moment from 'moment'
+Vue.filter('date', function(value, formatString) {
+    formatString = formatString || 'YYYY-MM-DD';
+    return moment(value).format(formatString);
+})
+
 
 // 图片放大
 import preview from 'vue-photo-preview'
