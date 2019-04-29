@@ -15,11 +15,8 @@ export default new Vuex.Store({
         }
     },
     mutations: {
-        showLoading(state) {
-            state.LOADING = true
-        },
-        hideLoading(state) {
-            state.LOADING = false
+        showLoading(state, payload) {
+            state.LOADING = payload
         },
         mutationsCity(state, city) {
             state.currentCity = city
@@ -28,6 +25,9 @@ export default new Vuex.Store({
     getters: {
         currentCity(state) {
             return state.currentCity
+        },
+        LOADING(state) {
+            return state.LOADING
         }
     }
 

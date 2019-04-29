@@ -45,13 +45,14 @@ import 'vue-photo-preview/dist/skin.css'
 Vue.use(preview)
 Vue.config.productionTip = false
 
-
-
+// 请求之前拦截器
 Vue.http.interceptors.push((request, next) => {　
     console.log(request)
-    console.log('ssss')
-        // this.$store.commit('showLoading', true)
-
+    store.commit('showLoading', true)
+    next((request) => {
+        store.commit('showLoading', false)
+        return request
+    })
 });
 
 new Vue({
