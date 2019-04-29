@@ -44,6 +44,16 @@ import preview from 'vue-photo-preview'
 import 'vue-photo-preview/dist/skin.css'
 Vue.use(preview)
 Vue.config.productionTip = false
+
+
+
+Vue.http.interceptors.push((request, next) => {　
+    console.log(request)
+    console.log('ssss')
+        // this.$store.commit('showLoading', true)
+
+});
+
 new Vue({
     router,
     store,

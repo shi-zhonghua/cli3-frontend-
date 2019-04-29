@@ -6,27 +6,27 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         LOADING: false,
-        currentCity:'北京'
+        currentCity: '北京'
     },
 
-    actions:{
-        acitonsCity(context,city){
-            context.commit('mutationsCity',city)
+    actions: {
+        acitonsCity(context, city) {
+            context.commit('mutationsCity', city)
         }
     },
     mutations: {
-        showLoading(state) { 
-            state.LOADING = true 
+        showLoading(state) {
+            state.LOADING = true
         },
-        hideLoading(state) { 
-            state.LOADING = false 
+        hideLoading(state) {
+            state.LOADING = false
         },
-        mutationsCity(state,city){
-            state.currentCity=city
+        mutationsCity(state, city) {
+            state.currentCity = city
         }
     },
-    getters:{
-        currentCity(state){
+    getters: {
+        currentCity(state) {
             return state.currentCity
         }
     }

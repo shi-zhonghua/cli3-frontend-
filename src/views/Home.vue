@@ -36,7 +36,7 @@ export default {
       let that = this;
       var keycode = document.all ? event.keyCode : e.which;
       if (keycode === 13) {
-        if(sessionStorageApi.getItem('token')){
+        if(sessionStorageApi.get('token')){
             return
         }
         that.cur();
