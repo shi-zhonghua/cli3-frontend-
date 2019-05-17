@@ -1,26 +1,10 @@
 <template>
     <div id="nav">
         <span>城市：{{currentCity}}</span>
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>|
-        <router-link to="/ciyun">ciyun</router-link>|
-        <router-link to="/echarts">echarts</router-link>|
-        <router-link to="/city">城市分布-三级联动</router-link>|
-        <router-link to="/city2">城市分布散点图</router-link>|
-        <router-link to="/event">event</router-link>|
-        <router-link to="/lodash">lodash</router-link>|
-        <router-link to="/card">card</router-link>|
-        <router-link to="/promise">promise</router-link>|
-        <router-link to="/iconfont">iconfont</router-link>|
-        <router-link to="/enzh">中英文</router-link>|
-        <router-link to="/xiazai">下载</router-link>|
-        <router-link to="/erweima">二维码</router-link>|
-        <router-link to="/flex">flex布局</router-link>|
-        <router-link to="/filter">过滤器</router-link>|
-        <router-link to="/photo">图片放大</router-link>|
-        <router-link to="/emit">emit传值</router-link>|
-        <router-link to="/freeTreeMenu">tree树形结构</router-link>|
-        <router-link to="/top">返回顶部</router-link>
+        <router-link  :to="item.to" :key="index" v-for="(item,index) in navMenus">
+             {{item.name}}
+        </router-link> 
+        
     </div>
 </template>
 <script>
@@ -28,7 +12,67 @@ import { mapGetters } from 'vuex'
 export default {
     data() {
         return {
-
+            navMenus:[{
+                name:'Home',
+                to:'/'
+            },{
+                name:'百度地图',
+                to:'/baiduMap'
+            },{
+                name:'词云',
+                to:'/ciyun'
+            },{
+                name:'图表',
+                to:'/echarts'
+            },{
+                name:'城市-三级联动',
+                to:'/city'
+            },{
+                name:'城市散点分布',
+                to:'/city2'
+            },{
+                name:'事件',
+                to:'/event'
+            },{
+                name:'lodash',
+                to:'/lodash'
+            },{
+                name:'卡片',
+                to:'/card'
+            },{
+                name:'promise',
+                to:'/promise'
+            },{
+                name:'图标',
+                to:'/iconfont'
+            },{
+                name:'中英文',
+                to:'/enzh'
+            },{
+                name:'下载',
+                to:'/xiazai'
+            },{
+                name:'二维码',
+                to:'/erweima'
+            },{
+                name:'flex布局',
+                to:'/flex'
+            },{
+                name:'过滤器',
+                to:'/filter'
+            },{
+                name:'图片放大',
+                to:'/photo'
+            },{
+                name:'父子传值',
+                to:'/emit'
+            },{
+                name:'树形结构',
+                to:'/freeTreeMenu'
+            },{
+                name:'返回顶部',
+                to:'/top'
+            }]
         }
 
     },
@@ -39,15 +83,18 @@ export default {
 </script>
 <style lang="less">
 #nav {
+    span{
+        float: left;
+        margin-left: 20px;
+    }
     padding: 20px 0;
     width: 100%;
     background: #ccc;
-
-
-
     a {
         font-weight: bold;
         color: #2c3e50;
+        margin-right:10px;
+        text-decoration: none;
 
         &.router-link-exact-active {
             color: #42b983;

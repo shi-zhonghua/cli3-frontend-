@@ -24,6 +24,7 @@ const photo = () => import( "@/views/photo.vue");
 const emit = () => import( "@/views/emit.vue");
 const freeTreeMenu = () => import( "@/views/freeTreeMenu.vue");
 const top = () => import( "@/views/top.vue");
+const baiduMap = () => import( "@/views/baiduMap.vue");
 
 
 Vue.use(Router)
@@ -51,6 +52,12 @@ const routes = [
             component: home,
             meta: {
                 title: 'home'
+            }
+        }, {
+            path: '/baiduMap',
+            component: baiduMap,
+            meta: {
+                title: '百度地图'
             }
         }, {
             path: '/about',

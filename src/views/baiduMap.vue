@@ -1,0 +1,77 @@
+<template>
+    <div>
+        百度地图
+        <div id="map">
+        </div>
+    </div>
+</template>
+<script>
+import BMap from 'BMap'
+export default {
+    name: 'Map',
+    data() {
+        return {}
+    },
+    methods: {
+
+        createMap() {
+            if (BMap) {
+                var map = new BMap.Map("map")
+                // 初始化地图,设置中心点坐标
+                var point = new BMap.Point(116.404, 39.915);
+                //地图级别
+                map.centerAndZoom(point, 15)
+                //添加地图类型控件
+                map.addControl(new BMap.MapTypeControl({
+                    mapTypes: [BMAP_NORMAL_MAP, BMAP_HYBRID_MAP]
+                }))
+                // 设置地图显示的城市 此项是必须设置的
+                map.setCurrentCity("北京")
+                //开启鼠标滚轮缩放
+                map.enableScrollWheelZoom(true)
+
+                // 添加控件
+                //平移缩放
+                map.addControl(new BMap.NavigationControl());
+                // 比例尺
+                map.addControl(new BMap.ScaleControl());
+                //缩略图
+                map.addControl(new BMap.OverviewMapControl());
+
+
+                //添加标注
+                var marker = new BMap.Marker(point); // 创建标注    
+                map.addOverlay(marker);// 将标注添加到地图中 
+
+
+                // 信息窗口 
+				var point1 = new BMap.Point(116.417854,39.921988);
+				var marker1 = new BMap.Marker(point1); // 创建标注    
+                map.addOverlay(marker1);// 将标注添加到地图中 
+                var opts = {
+                    width: 200, // 信息窗口宽度
+                    height: 100, // 信息窗口高度
+                    title: "海底捞王府井店", // 信息窗口标题
+                    enableMessage: true, //设置允许信息窗发送短息
+                    message: "亲耐滴，晚上一起吃个饭吧？戳下面的链接看下地址喔~"
+                }
+                var infoWindow = new BMap.InfoWindow("地址：北京市东城区王府井大街88号乐天银泰百货八层", opts); // 创建信息窗口对象 
+                marker1.addEventListener("click", function() {
+                    map.openInfoWindow(infoWindow, point1); //开启信息窗口
+                });
+
+            }
+        }
+    },
+    mounted() {
+        this.createMap()
+    }
+}
+</script>
+<style scoped lang="less">
+#map {
+    margin: 20px auto;
+    width: 700px;
+    height: 400px;
+}
+</style>

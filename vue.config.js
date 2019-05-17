@@ -12,7 +12,13 @@ module.exports = {
     // webpack配置
     // see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
     // chainWebpack: () => {},
-    // configureWebpack: () => {},
+
+    configureWebpack: {
+        //百度地图
+        externals: {
+            "BMap": "BMap"
+        }
+    },
     // vue-loader 配置项
     // https://vue-loader.vuejs.org/en/options.html
     // vueLoader: {},
@@ -57,4 +63,7 @@ module.exports = {
     pluginOptions: {
         // ...
     }
+
+
+
 }
