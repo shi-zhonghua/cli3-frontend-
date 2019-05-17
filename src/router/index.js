@@ -23,6 +23,7 @@ const filter = () => import( "@/views/filter.vue");
 const photo = () => import( "@/views/photo.vue");
 const emit = () => import( "@/views/emit.vue");
 const freeTreeMenu = () => import( "@/views/freeTreeMenu.vue");
+const top = () => import( "@/views/top.vue");
 
 
 Vue.use(Router)
@@ -158,6 +159,12 @@ const routes = [
             component: freeTreeMenu,
             meta: {
                 title: '树形结构'
+            }
+        },{
+            path: '/top',
+            component: top,
+            meta: {
+                title: '返回顶部'
             }
         }]
     }

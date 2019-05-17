@@ -13,6 +13,10 @@ export default new Vuex.Store({
         acitonsCity(context, city) {
             context.commit('mutationsCity', city)
         }
+        // acitonsCity({commit}, city) {
+        //     commit('mutationsCity', city)
+        // }
+
     },
     mutations: {
         showLoading(state, payload) {

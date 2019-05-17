@@ -2,14 +2,17 @@
   <div class="layout-wrap">
     <nav-menu />
     <router-view id="page-content" />
+    <goTop/>
   </div>
 </template>
 <script>
 import navMenu from "./navMenu";
+import goTop from "../views/top";
 export default {
   name: "layout",
   components: {
-    navMenu
+    navMenu,
+    goTop
   },
   data() {
     return {};

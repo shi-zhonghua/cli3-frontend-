@@ -19,7 +19,8 @@
         <router-link to="/filter">过滤器</router-link>|
         <router-link to="/photo">图片放大</router-link>|
         <router-link to="/emit">emit传值</router-link>|
-        <router-link to="/freeTreeMenu">tree树形结构</router-link>
+        <router-link to="/freeTreeMenu">tree树形结构</router-link>|
+        <router-link to="/top">返回顶部</router-link>
     </div>
 </template>
 <script>
