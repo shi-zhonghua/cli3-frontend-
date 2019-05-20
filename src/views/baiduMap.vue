@@ -1,6 +1,7 @@
 <template>
     <div>
         百度地图
+        <p>当前城市：{{LocationCity}}</p>
         <div id="map">
         </div>
     </div>
@@ -10,9 +11,33 @@ import BMap from 'BMap'
 export default {
     name: 'Map',
     data() {
-        return {}
+        return {
+            LocationCity: '',
+            position:'',
+            success: false
+        }
     },
+    mounted() {
+        this.createMap();
+        this.getLocation()
+    },
+
     methods: {
+
+        getLocation() {
+            const geolocation = new BMap.Geolocation();
+            var _this = this;
+            _this.LocationCity = '正在定位';
+            geolocation.getCurrentPosition(function getinfo(position){
+                let city = position.address.city;             //获取城市信息
+                _this.LocationCity = city;
+                _this.success = true;
+            }, function(e) {
+                _this.LocationCity = '定位失败, 请点击重试';
+                this.success = false;
+            }, {provider: 'baidu'});
+        },
+
 
         createMap() {
             if (BMap) {
@@ -41,13 +66,13 @@ export default {
 
                 //添加标注
                 var marker = new BMap.Marker(point); // 创建标注    
-                map.addOverlay(marker);// 将标注添加到地图中 
+                map.addOverlay(marker); // 将标注添加到地图中 
 
 
                 // 信息窗口 
-				var point1 = new BMap.Point(116.417854,39.921988);
-				var marker1 = new BMap.Marker(point1); // 创建标注    
-                map.addOverlay(marker1);// 将标注添加到地图中 
+                var point1 = new BMap.Point(116.417854, 39.921988);
+                var marker1 = new BMap.Marker(point1); // 创建标注    
+                map.addOverlay(marker1); // 将标注添加到地图中 
                 var opts = {
                     width: 200, // 信息窗口宽度
                     height: 100, // 信息窗口高度
@@ -62,10 +87,8 @@ export default {
 
             }
         }
-    },
-    mounted() {
-        this.createMap()
     }
+
 }
 </script>
 <style scoped lang="less">

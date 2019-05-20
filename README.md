@@ -54,3 +54,19 @@ git status -s 查看当前仓库状态
 ```
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+##百度地图使用
+```
+1. 百度官网申请秘钥
+2. 在index.html 引入js 
+   <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=自己的秘钥"></script>
+3. 在vue.config.js的配置文件里加上 
+    configureWebpack: {
+        //百度地图
+        externals: {
+            "BMap": "BMap"
+        }
+    },
+4. 在要使用地图的组件内
+   import BMap from 'BMap'
+```
