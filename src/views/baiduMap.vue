@@ -13,13 +13,15 @@ export default {
     data() {
         return {
             LocationCity: '',
-            position:'',
-            success: false
+            position: '',
+            success: false,
+            lng: 116.404,
+            lat: 39.915
         }
     },
     mounted() {
         this.createMap();
-        this.getLocation()
+        this.getLocation();
     },
 
     methods: {
@@ -28,22 +30,24 @@ export default {
             const geolocation = new BMap.Geolocation();
             var _this = this;
             _this.LocationCity = '正在定位';
-            geolocation.getCurrentPosition(function getinfo(position){
-                let city = position.address.city;             //获取城市信息
+            geolocation.getCurrentPosition(function getinfo(position) {
+                let city = position.address.city; //获取城市信息
                 _this.LocationCity = city;
                 _this.success = true;
             }, function(e) {
                 _this.LocationCity = '定位失败, 请点击重试';
                 this.success = false;
-            }, {provider: 'baidu'});
+            }, { provider: 'baidu' });
         },
+
+        
 
 
         createMap() {
             if (BMap) {
                 var map = new BMap.Map("map")
                 // 初始化地图,设置中心点坐标
-                var point = new BMap.Point(116.404, 39.915);
+                var point = new BMap.Point(this.lng, this.lat);
                 //地图级别
                 map.centerAndZoom(point, 15)
                 //添加地图类型控件
@@ -84,6 +88,12 @@ export default {
                 marker1.addEventListener("click", function() {
                     map.openInfoWindow(infoWindow, point1); //开启信息窗口
                 });
+
+                // 创建圆区域
+                var circle = new BMap.Circle(point1, 500, { strokeColor: "blue", strokeWeight: 2, strokeOpacity: 0.5 });
+                map.addOverlay(circle);
+
+
 
             }
         }
