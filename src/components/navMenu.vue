@@ -72,6 +72,9 @@ export default {
             },{
                 name:'返回顶部',
                 to:'/top'
+            },{
+                name:'过渡/动画',
+                to:'/transition'
             }]
         }
 

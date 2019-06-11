@@ -25,6 +25,8 @@ const emit = () => import( "@/views/emit.vue");
 const freeTreeMenu = () => import( "@/views/freeTreeMenu.vue");
 const top = () => import( "@/views/top.vue");
 const baiduMap = () => import( "@/views/baiduMap.vue");
+const transition = () => import( "@/views/transition.vue");
+const watch = () => import( "@/views/watch.vue");
 
 
 Vue.use(Router)
@@ -172,6 +174,12 @@ const routes = [
             component: top,
             meta: {
                 title: '返回顶部'
+            }
+        },{
+            path:'/transition',
+            component:transition,
+            meta:{
+                title:'过渡/动画'
             }
         }]
     }
