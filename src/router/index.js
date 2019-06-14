@@ -181,6 +181,12 @@ const routes = [
             meta:{
                 title:'过渡/动画'
             }
+        },{
+            path:'/watch',
+            component:watch,
+            meta:{
+                title:'监测'
+            }
         }]
     }
 ]

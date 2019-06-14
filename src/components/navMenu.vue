@@ -75,6 +75,9 @@ export default {
             },{
                 name:'过渡/动画',
                 to:'/transition'
+            },{
+                name:'监测',
+                to:'/watch'
             }]
         }
 
