@@ -218,6 +218,9 @@ export default {
         }, {
             "msg": "真好看6。。。。"
         }];
+        // for(var i=0;i<100;i++){
+        //     datas.push()
+        // }
         this.putMsg(datas)
         this.requestData()
     }
