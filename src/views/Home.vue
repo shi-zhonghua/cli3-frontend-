@@ -12,65 +12,92 @@
 </template>
 <script>
 import HelloWorld from "@/components/HelloWorld.vue";
-import {  sessionStorageApi } from "@/utils/storageApi.js";
-export default {
-  name: "home",
-  components: {
-    HelloWorld
-  },
-  directives: {
-    focus: {
-      // 指令的定义
-      inserted: function(el) {
-        el.focus();
-      }
-    }
-  },
-  data() {
-    return {
-      yearArr: []
-    };
-  },
-  created() {
-    document.onkeypress = e => {
-      let that = this;
-      var keycode = document.all ? event.keyCode : e.which;
-      if (keycode === 13) {
-        if(sessionStorageApi.get('token')){
-            return
-        }
-        that.cur();
-        return false;
-      }
-    };
-  },
-  mounted() {
-    this.getYear();
-    this.random();
-  },
+import { sessionStorageApi ,localStorageApi} from "@/utils/storageApi.js";
 
-  methods: {
-    random() {
-      let token = [];
-      for (let i = 0; i < 10; i++) {
-        token.push(Math.ceil(Math.random() * 10) * i);
-      }
-      let tokens = token.join("");
-      sessionStorageApi.set("token", tokens);
+// 添加引导步骤
+import Driver from "driver.js" // import driver.js
+import "driver.js/dist/driver.min.css" // import driver.js css
+import steps from "./guide"
+
+export default {
+    name: "home",
+    components: {
+        HelloWorld
     },
-    getYear() {
-      var date = new Date();
-      var currentYear = date.getFullYear();
-      this.yearArr.push(currentYear);
-      var onYear = currentYear - 1;
-      this.yearArr.push(onYear);
+    directives: {
+        focus: {
+            // 指令的定义
+            inserted: function(el) {
+                el.focus();
+            }
+        }
     },
-    cur() {
-      this.$message({
-        message: "警告哦，这是一条警告消息",
-        type: "warning"
-      });
+    data() {
+        return {
+            yearArr: [],
+            driver: null,
+        };
+    },
+    created() {
+        document.onkeypress = e => {
+            let that = this;
+            var keycode = document.all ? event.keyCode : e.which;
+            if (keycode === 13) {
+                if (sessionStorageApi.get('token')) {
+                    return
+                }
+                that.cur();
+                return false;
+            }
+        };
+    },
+    mounted() {
+        this.getYear();
+        this.random();
+        this.driver = new Driver({
+            className: "scoped-class", // className to wrap driver.js popover
+            animate: true, // Animate while changing highlighted element
+            opacity: 0.75, // Background opacity (0 means only popovers and without overlay)
+            padding: 10, // Distance of element from around the edges
+            allowClose: true, // Whether clicking on overlay should close or not
+            overlayClickNext: false, // Should it move to next step on overlay click
+            doneBtnText: "完成", // Text on the final button
+            closeBtnText: "关闭", // Text on the close button for this step
+            nextBtnText: "下一步", // Next button text for this step
+            prevBtnText: "上一步" // Previous button text for this step
+            // Called when moving to next step on any step
+        });
+        
+
+    },
+
+    methods: {
+        random() {
+            let token = [];
+            for (let i = 0; i < 10; i++) {
+                token.push(Math.ceil(Math.random() * 10) * i);
+            }
+            let tokens = token.join("");
+            sessionStorageApi.set("token", tokens);
+        },
+        getYear() {
+            var date = new Date();
+            var currentYear = date.getFullYear();
+            this.yearArr.push(currentYear);
+            var onYear = currentYear - 1;
+            this.yearArr.push(onYear);
+        },
+        cur() {
+            this.$message({
+                message: "警告哦，这是一条警告消息",
+                type: "warning"
+            });
+        },
+        //引导步骤
+        guide() {
+            this.driver.defineSteps(steps)
+            this.driver.start()
+        }
     }
-  }
 };
 </script>
