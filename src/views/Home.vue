@@ -15,6 +15,7 @@ import HelloWorld from "@/components/HelloWorld.vue";
 import { sessionStorageApi ,localStorageApi} from "@/utils/storageApi.js";
 
 // 添加引导步骤
+
 import Driver from "driver.js" // import driver.js
 import "driver.js/dist/driver.min.css" // import driver.js css
 import steps from "./guide"
@@ -67,7 +68,10 @@ export default {
             prevBtnText: "上一步" // Previous button text for this step
             // Called when moving to next step on any step
         });
-        
+        if(!localStorageApi.get('firstLogin')){
+             this.guide()
+            localStorageApi.set('firstLogin','ture')
+        }
 
     },
 
