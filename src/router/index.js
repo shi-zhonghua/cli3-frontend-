@@ -53,6 +53,8 @@ const watch = () =>
     import ("@/views/watch.vue");
 const fenye = () =>
     import ("@/views/fenye.vue");
+const number = () =>
+    import ("@/views/number.vue");
 
 
 Vue.use(Router)
@@ -216,6 +218,12 @@ const routes = [
         }, {
             path: '/fenye',
             component: fenye,
+            meta: {
+                title: ''
+            }
+        }, {
+            path: '/number',
+            component: number,
             meta: {
                 title: ''
             }

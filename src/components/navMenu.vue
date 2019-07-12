@@ -78,6 +78,9 @@ export default {
             },{
                 name:'监测',
                 to:'/watch'
+            },{
+                name:'数字跳动',
+                to:'/number'
             }]
         }
 
@@ -93,9 +96,11 @@ export default {
         float: left;
         margin-left: 20px;
     }
-    padding: 20px 0;
+    padding: 20px ;
+    box-sizing: border-box;
     width: 100%;
     background: #ccc;
+    word-wrap: break-word;
     a {
         font-weight: bold;
         color: #2c3e50;
