@@ -47,7 +47,7 @@ module.exports = {
     // webpack-dev-server 相关配置 关键点 配置ip 地址，跟端口号
     devServer: {
         open: process.platform === 'darwin', // 配置自动启动浏览器
-        host: 'localhost', // ip地址
+        host: '0.0.0.0', // ip地址
         port: 8888, // 端口号
         https: false,
         hotOnly: false, // 热更新

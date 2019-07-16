@@ -4,57 +4,59 @@ import store from '@/vuex/store.js'
 // import Home from './views/Home.vue'
 
 const layout = () =>
-    import ("@/components/layout.vue");
+    import("@/components/layout.vue");
 const home = () =>
-    import ("@/views/Home.vue");
+    import("@/views/Home.vue");
 const about = () =>
-    import ("@/views/About.vue");
+    import("@/views/About.vue");
 const ciyun = () =>
-    import ("@/views/ciyun.vue");
+    import("@/views/ciyun.vue");
 const echarts = () =>
-    import ("@/views/echarts.vue");
+    import("@/views/echarts.vue");
 const city = () =>
-    import ("@/views/city.vue");
+    import("@/views/city.vue");
 const city2 = () =>
-    import ("@/views/city2.vue");
+    import("@/views/city2.vue");
 const event = () =>
-    import ("@/views/event.vue");
+    import("@/views/event.vue");
 const lodash = () =>
-    import ("@/views/lodash.vue");
+    import("@/views/lodash.vue");
 const card = () =>
-    import ("@/views/card.vue");
+    import("@/views/card.vue");
 const promise = () =>
-    import ("@/views/promise.vue");
+    import("@/views/promise.vue");
 const enzh = () =>
-    import ("@/views/enzh.vue");
+    import("@/views/enzh.vue");
 const iconfont = () =>
-    import ("@/views/iconfont.vue");
+    import("@/views/iconfont.vue");
 const xiazai = () =>
-    import ("@/views/xiazai.vue");
+    import("@/views/xiazai.vue");
 const erweima = () =>
-    import ("@/views/erweima.vue");
+    import("@/views/erweima.vue");
 const flex = () =>
-    import ("@/views/flex.vue");
+    import("@/views/flex.vue");
 const filter = () =>
-    import ("@/views/filter.vue");
+    import("@/views/filter.vue");
 const photo = () =>
-    import ("@/views/photo.vue");
+    import("@/views/photo.vue");
 const emit = () =>
-    import ("@/views/emit.vue");
+    import("@/views/emit.vue");
 const freeTreeMenu = () =>
-    import ("@/views/freeTreeMenu.vue");
+    import("@/views/freeTreeMenu.vue");
 const top = () =>
-    import ("@/views/top.vue");
+    import("@/views/top.vue");
 const baiduMap = () =>
-    import ("@/views/baiduMap.vue");
+    import("@/views/baiduMap.vue");
 const transition = () =>
-    import ("@/views/transition.vue");
+    import("@/views/transition.vue");
 const watch = () =>
-    import ("@/views/watch.vue");
+    import("@/views/watch.vue");
 const fenye = () =>
-    import ("@/views/fenye.vue");
+    import("@/views/fenye.vue");
 const number = () =>
-    import ("@/views/number.vue");
+    import("@/views/number.vue");
+const webMap = () =>
+    import("@/views/webMap.vue");
 
 
 Vue.use(Router)
@@ -227,25 +229,31 @@ const routes = [
             meta: {
                 title: ''
             }
+        }, {
+            path: '/webMap',
+            component: webMap,
+            meta: {
+                title: '地图导航'
+            }
         }]
     }
 ]
 
 const router = new Router({
-        mode: 'history',
-        base: process.env.BASE_URL,
-        routes
-    })
-    // 路由跳转前的钩子
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes
+})
+// 路由跳转前的钩子
 router.beforeEach(function(to, from, next) {
-        // this.$store.commit('showLoading', { LOADING: true })
-        next()
+    // this.$store.commit('showLoading', { LOADING: true })
+    next()
 
-    })
-    // 路由跳转后的钩子
+})
+// 路由跳转后的钩子
 router.afterEach((to, from) => {
     window.document.title = to.meta.title
-        // this.$store.commit('hideLoading', { LOADING: false })
+    // this.$store.commit('hideLoading', { LOADING: false })
 })
 
 
