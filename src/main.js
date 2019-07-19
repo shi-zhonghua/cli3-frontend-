@@ -16,7 +16,9 @@ import "./assets/iconfont/iconfont.css";
 // 中英文国际化
 import i18n from './i18n/lang/index.js'
 Vue.use(i18n)
-
+//复制文本
+import clipboard from 'clipboard';
+Vue.prototype.clipboard = clipboard;
 // 词云插件
 import echarts from 'echarts'
 Vue.prototype.$echarts = echarts

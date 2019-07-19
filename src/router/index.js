@@ -57,6 +57,8 @@ const number = () =>
     import("@/views/number.vue");
 const webMap = () =>
     import("@/views/webMap.vue");
+const copy = () =>
+    import("@/views/copy.vue");
 
 
 Vue.use(Router)
@@ -234,6 +236,12 @@ const routes = [
             component: webMap,
             meta: {
                 title: '地图导航'
+            }
+        }, {
+            path: '/copy',
+            component: copy,
+            meta: {
+                title: '复制文本'
             }
         }]
     }

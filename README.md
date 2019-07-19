@@ -69,4 +69,35 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     },
 4. 在要使用地图的组件内
    import BMap from 'BMap'
+
+复制文本功能
+1、npm install clipboard --save
+2、在main.js 添加 
+import clipboard from 'clipboard';
+//注册到vue原型上
+Vue.prototype.clipboard = clipboard;
+3、在使用的地方 添加
+import Clipboard from 'clipboard';
+4、 方法
+ <button ref="copy" class="lr" :data-clipboard-text="item" @click="copy(index)" :id="'copy_text'+index">复制</button>
+copy(index) {
+            let clipboard = new Clipboard("#copy_text" + index);
+            clipboard.on('success', e => {
+                this.$message({
+                    message: '复制成功！',
+                    type: 'success'
+                });
+                // 释放内存
+                clipboard.destroy()
+            })
+            clipboard.on('error', e => {
+                // 不支持复制
+                Message({
+                    message: '该浏览器不支持自动复制',
+                    type: 'warning'
+                });
+                // 释放内存
+                clipboard.destroy()
+            })
+        }
 ```

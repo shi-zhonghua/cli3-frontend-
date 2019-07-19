@@ -11,7 +11,39 @@
         </p>
         <p><a href="http://map.baidu.com/mobile/" class="map">
                 查看地图公交/驾车去这里</a>
-                百度地图首页
+            百度地图首页
         </p>
+        纬度：{{lat}}
+        经度：{{lng}}
+        {{inner}}
     </div>
 </template>
+<script>
+export default {
+    data() {
+        return {
+            inner: '',
+            lat: '',
+            lng: '',
+        }
+    },
+    mounted() {
+        this.getLocation()
+    },
+    methods: {
+        getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(this.showPosition);
+            } else {
+                this.inner = "地理位置浏览器支持";
+            }
+        },
+
+        showPosition(position) { //showPosition() 函数获得并显示经度和纬度
+            this.lat = position.coords.latitude;
+            this.lng = position.coords.longitude;
+            this.inner = "纬度: " + position.coords.latitude + "<br />经度: " + position.coords.longitude;
+        }
+    }
+}
+</script>

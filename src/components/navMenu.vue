@@ -81,6 +81,9 @@ export default {
             },{
                 name:'数字跳动',
                 to:'/number'
+            },{
+                name:'复制文本',
+                to:'/copy'
             }]
         }
 
