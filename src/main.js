@@ -40,7 +40,9 @@ Vue.filter('dateTime', function(value, formatString) {
     formatString = formatString || 'YYYY-MM-DD HH:mm';
     return moment(value).format(formatString);
 })
-
+// 全局骨架屏
+import skeleton from 'vue-skeleton-component'
+Vue.use(skeleton)
 // 图片放大
 import preview from 'vue-photo-preview'
 import 'vue-photo-preview/dist/skin.css'

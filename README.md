@@ -101,3 +101,72 @@ copy(index) {
             })
         }
 ```
+、、、
+骨架屏
+npm install vue-skeleton-component --save-dev
+
+// main.js
+import skeleton from 'vue-skeleton-component'
+Vue.use(skeleton)
+骨架屏样式
+
+初期版本只提供几个简单的样式可以选择，后续会慢慢补充
+1. 分割线
+
+以给定的容器大小为基准画一条线 分割线
+
+<skeleton active type='straightLine' :options="{
+    height: '20px',
+    position: 'center'
+}" />
+
+2. 圆
+
+画一个圆, 需要给出圆的直径，否则在一个长方形容器中将表现为椭圆形 圆
+
+<skeleton  type='circlecom' active :options="{
+    width: '150px'
+}" />
+
+
+3. 卡片
+
+画一个方块，需要给定宽和高，否则将会默认自动填充容器 卡片
+
+<skeleton type='card' active :options="{
+    width: '200px',
+    height: '150px'
+}" />
+
+
+4. 列表
+
+创建一个文字行效果，需要给出文字行数和行高 列表
+
+<skeleton type='listcom' active :options="{
+    row: 3,
+    lineHight: 20
+}" />
+
+
+5. 混合类型
+
+混合类型可以使用以上几种类型的全部api，将其整合到一起，相互拼接 混合类型
+
+混合类型使用了九宫格布局来作为基础布局(grid布局)，将你想插入的组件按照[a ~ i]的顺序进行排列，你可以选择你想让哪些组件出现在哪一个位置，简单配置，就可以达到想要的效果，如下图 九宫格布局
+
+<skeleton type="custom" :options="{ width: '100%', height: '100%' }" :childrenOption="[
+    {type: 'circlecom', rules: 'a, d', active: true, options:{width: '150px'} },
+    {type: 'listcom', rules: 'b, c, e, f', active: true},
+    {type: 'straightLine', active: true, rules: 'g, h, i'},
+]" />
+
+参数
+
+API     内容  类型  值
+type    显示类型    String  组件类型
+active  是否显示动效  Boolean     true/false
+options     设置项     Object  null
+-rules  出现规则，这里不可以跨行切必须相邻   String  'a, b, ... i'
+-childrenOption     设置子组件类型     Array[Object]   []
+、、、

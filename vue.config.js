@@ -17,7 +17,8 @@ module.exports = {
         //百度地图
         externals: {
             "BMap": "BMap"
-        }
+        },
+       
     },
     // vue-loader 配置项
     // https://vue-loader.vuejs.org/en/options.html

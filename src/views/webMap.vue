@@ -28,7 +28,8 @@ export default {
         }
     },
     mounted() {
-        this.getLocation()
+        this.getLocation();
+        alert(this.lat)
     },
     methods: {
         getLocation() {
