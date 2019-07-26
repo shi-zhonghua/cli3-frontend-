@@ -1,11 +1,12 @@
 <template>
     <div class="home">
-     
-
-<skeleton class='skeleton' v-if="isSkeleton"  type='listcom' active :options="{
+        <!-- 骨架屏 -->
+        <skeleton class='skeleton' v-if="isSkeleton" type='listcom' active :options="{
     row: 3,
     lineHight: 20
-}" />
+}">
+    
+</skeleton>
         <div id="loginDiv" tabindex="1" style="outline:0;">
             <input type="text" v-focus style="opacity:0;position:absolute;">
         </div>
@@ -14,12 +15,12 @@
         <div v-for="item in yearArr" :key="item">{{item}}</div>
         {{yearArr}}<br />
         <el-button type="primary" class="sub-btn" @click="cur">获取return键</el-button>
+        <router-link to="/About">About</router-link>
     </div>
 </template>
 <script>
 import HelloWorld from "@/components/HelloWorld.vue";
 import { sessionStorageApi, localStorageApi } from "@/utils/storageApi.js";
-// import skeleton from 'vue-skeleton-component'
 
 // 添加引导步骤
 
@@ -44,7 +45,7 @@ export default {
         return {
             yearArr: [],
             driver: null,
-            isSkeleton:true
+            isSkeleton: true
         };
     },
     created() {
@@ -61,9 +62,9 @@ export default {
         };
     },
     mounted() {
-        setTimeout(()=>{
-            this.isSkeleton=false
-        },5000);
+        setTimeout(() => {
+            this.isSkeleton = false
+        }, 50);
         this.getYear();
         this.random();
         this.driver = new Driver({
@@ -117,15 +118,15 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-    .skeleton{
-        position: fixed;
-        top:0;
-        left: 0;
-        right:0;
-        bottom:0;
-        // width:100%;
-        // height: 100%;
-        background: #ccc;
-        z-index: 333;
-    }
+.skeleton {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // width:100%;
+    // height: 100%;
+    background: #ccc;
+    z-index: 333;
+}
 </style>

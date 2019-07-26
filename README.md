@@ -101,8 +101,9 @@ copy(index) {
             })
         }
 ```
-、、、
-骨架屏
+##骨架屏
+```
+
 npm install vue-skeleton-component --save-dev
 
 // main.js
@@ -169,4 +170,4 @@ active  是否显示动效  Boolean     true/false
 options     设置项     Object  null
 -rules  出现规则，这里不可以跨行切必须相邻   String  'a, b, ... i'
 -childrenOption     设置子组件类型     Array[Object]   []
-、、、
+```
