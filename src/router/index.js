@@ -61,6 +61,8 @@ const copy = () =>
     import ("@/views/copy.vue");
 const mapApp = () =>
     import ("@/views/webMap.vue");
+const swiper = () =>
+    import ("@/views/swiper.vue");
 
 Vue.use(Router)
 
@@ -249,6 +251,12 @@ const routes = [
             component: mapApp,
             meta: {
                 title: '导航'
+            }
+        }, {
+            path: '/swiper',
+            component: swiper,
+            meta: {
+                title: '轮播'
             }
         }]
     }

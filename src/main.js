@@ -16,7 +16,7 @@ import "./assets/iconfont/iconfont.css";
 // 中英文国际化
 import i18n from './i18n/lang/index.js'
 Vue.use(i18n)
-//复制文本
+    //复制文本
 import clipboard from 'clipboard';
 Vue.prototype.clipboard = clipboard;
 // 词云插件
@@ -37,17 +37,22 @@ Vue.filter('date', function(value, formatString) {
     return moment(value).format(formatString);
 })
 Vue.filter('dateTime', function(value, formatString) {
-    formatString = formatString || 'YYYY-MM-DD HH:mm';
-    return moment(value).format(formatString);
-})
-// 全局骨架屏
+        formatString = formatString || 'YYYY-MM-DD HH:mm';
+        return moment(value).format(formatString);
+    })
+    // 全局骨架屏
 import skeleton from 'vue-skeleton-component'
 Vue.use(skeleton)
-// 图片放大
+    // 图片放大
 import preview from 'vue-photo-preview'
 import 'vue-photo-preview/dist/skin.css'
 Vue.use(preview)
 Vue.config.productionTip = false
+
+// swiper 轮播
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
+Vue.use(VueAwesomeSwiper)
 
 // 请求之前拦截器
 Vue.http.interceptors.push((request, next) => {　

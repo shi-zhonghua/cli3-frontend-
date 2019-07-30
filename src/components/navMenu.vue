@@ -87,6 +87,9 @@ export default {
             },{
                 name:'mapApp',
                 to:'/mapApp'
+            },{
+                name:'swiper',
+                to:'/swiper'
             }]
         }
 
