@@ -1,0 +1,21 @@
+{
+    "name": "PWA-Front",
+    "short_name":"PWA-Front",
+    "description": "测试demo",
+    "start_url": "/",
+    "icons": {
+      "128": "/asset/logo.png"
+    },
+    "developer": {
+      "name": "pqj",
+      "url": ""
+    },
+    "display": "standalone",
+    "background_color": "#287fc5",
+    "theme_color": "#fff",
+    "permissions": {
+        "desktop-notification": {
+          "description": "Needed for creating system notifications."
+        }
+      }
+}  

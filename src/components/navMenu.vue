@@ -84,6 +84,9 @@ export default {
             },{
                 name:'复制文本',
                 to:'/copy'
+            },{
+                name:'mapApp',
+                to:'/mapApp'
             }]
         }
 
