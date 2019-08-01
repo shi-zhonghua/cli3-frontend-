@@ -54,6 +54,11 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper)
 
+// video 视频
+import VideoPlayer from 'vue-video-player'
+import 'video.js/dist/video-js.css'
+Vue.use(VideoPlayer)
+
 // 请求之前拦截器
 Vue.http.interceptors.push((request, next) => {　
     console.log(request)

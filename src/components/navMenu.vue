@@ -90,6 +90,9 @@ export default {
             },{
                 name:'swiper',
                 to:'/swiper'
+            },{
+                name:'video',
+                to:'/video'
             }]
         }
 

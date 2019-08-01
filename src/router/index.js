@@ -63,7 +63,8 @@ const mapApp = () =>
     import ("@/views/webMap.vue");
 const swiper = () =>
     import ("@/views/swiper.vue");
-
+const video = () =>
+    import ("@/views/video.vue");
 Vue.use(Router)
 
 const routes = [
@@ -257,6 +258,12 @@ const routes = [
             component: swiper,
             meta: {
                 title: '轮播'
+            }
+        }, {
+            path: '/video',
+            component: video,
+            meta: {
+                title: '视频'
             }
         }]
     }
