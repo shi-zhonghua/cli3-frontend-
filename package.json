@@ -40,6 +40,7 @@
     "less-loader": "^4.1.0",
     "vue-resource": "^1.5.1",
     "vue-skeleton-component": "^1.1.2",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "vue-waterfall-easy": "^2.4.4"
   }
 }

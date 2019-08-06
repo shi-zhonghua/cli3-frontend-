@@ -93,6 +93,9 @@ export default {
             },{
                 name:'video',
                 to:'/video'
+            },{
+                name:'瀑布流',
+                to:'/waterfallEasy'
             }]
         }
 

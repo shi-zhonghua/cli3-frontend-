@@ -3,11 +3,13 @@
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <video style="width:100%;" id="video" height="160" src="https://media.w3.org/2010/05/sintel/trailer.mp4" controls="controls" playsinline="" webkit-playsinline="">
+                    <video id="video" height="160" src="https://media.w3.org/2010/05/sintel/trailer.mp4" controls="controls" playsinline="" webkit-playsinline="" poster="http://imsapi.yueqizhixiang.com/uploads/images/leqizhixiang/shangjiadianpu/zixun2/1564392065070.jpg">
                         您的浏览器不支持 video 标签。
                     </video>
-                    <button @click="stop">暂停</button>
-                    <button @click="start">开始</button>
+                    <div>
+                        <button @click="pause">暂停</button>
+                        <button @click="play">开始</button>
+                    </div>
                 </div>
                 <div class="swiper-slide" v-for="(item,index) in 5">
                     {{item}}
@@ -22,23 +24,22 @@
 <script>
 import "swiper/dist/css/swiper.css";
 import Swiper from "swiper";
-import { constants } from "fs";
 export default {
   data() {
     return {};
   },
   mounted() {
-      let _this=this;
+    let _this = this;
     new Swiper(".swiper-container", {
       loop: true,
-      //autoplay: true, //自动轮播  
+      //autoplay: true, //自动轮播
       // 如果需要分页器
       pagination: {
         el: ".swiper-pagination"
       },
       on: {
         touchMove: function(event) {
-            _this.stop();
+          _this.pause();
         }
       },
       // 如果需要前进后退按钮
@@ -49,12 +50,12 @@ export default {
     });
   },
   methods: {
-    stop() {
+    pause() {
       var video = document.getElementById("video");
       //暂停
       video.pause();
     },
-    start() {
+    play() {
       var video = document.getElementById("video");
       //播放
       video.play();
@@ -73,6 +74,7 @@ export default {
   width: 100%;
   height: 220px;
 }
+
 </style>
 
 

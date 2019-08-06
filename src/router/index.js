@@ -65,6 +65,10 @@ const swiper = () =>
     import ("@/views/swiper.vue");
 const video = () =>
     import ("@/views/video.vue");
+const waterfallEasy = () =>
+    import ("@/views/waterfallEasy.vue");
+
+
 Vue.use(Router)
 
 const routes = [
@@ -264,6 +268,12 @@ const routes = [
             component: video,
             meta: {
                 title: '视频'
+            }
+        }, {
+            path: '/waterfallEasy',
+            component: waterfallEasy,
+            meta: {
+                title: '瀑布流'
             }
         }]
     }
