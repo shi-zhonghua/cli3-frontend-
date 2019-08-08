@@ -1,17 +1,17 @@
 import axios from 'axios';
 import router from '../router';
 // 创建axios实例
-const service = axios.create({
+const Service = axios.create({
         timeout: 30000 // 请求超时时间                                   
     })
     // 添加request拦截器 
-service.interceptors.request.use(config => {
+Service.interceptors.request.use(config => {
         return config
     }, error => {
         Promise.reject(error)
     })
     // 添加respone拦截器
-service.interceptors.response.use(
+Service.interceptors.response.use(
     response => {
         let res = {};
         res.status = response.status
@@ -28,7 +28,7 @@ service.interceptors.response.use(
 
 export function get(url, params = {}) {
     params.t = new Date().getTime(); //get方法加一个时间参数,解决ie下可能缓存问题.
-    return service({
+    return Service({
         url: url,
         method: 'get',
         headers: {},
@@ -49,12 +49,12 @@ export function post(url, data = {}) {
         data: data
     };
     sendObject.data = JSON.stringify(data);
-    return service(sendObject)
+    return Service(sendObject)
 }
 
 //封装put方法 (resfulAPI常用)
 export function put(url, data = {}) {
-    return service({
+    return Service({
         url: url,
         method: 'put',
         headers: {
@@ -65,7 +65,7 @@ export function put(url, data = {}) {
 }
 //删除方法(resfulAPI常用)
 export function deletes(url) {
-    return service({
+    return Service({
         url: url,
         method: 'delete',
         headers: {}
@@ -73,4 +73,4 @@ export function deletes(url) {
 }
 
 //export
-export default service
+export default Service
