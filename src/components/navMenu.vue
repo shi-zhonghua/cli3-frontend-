@@ -96,6 +96,9 @@ export default {
             },{
                 name:'瀑布流',
                 to:'/waterfallEasy'
+            },{
+                name:'图片懒加载',
+                to:'/lazy'
             }]
         }
 

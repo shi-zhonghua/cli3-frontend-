@@ -47,7 +47,6 @@ Vue.use(skeleton)
 import preview from 'vue-photo-preview'
 import 'vue-photo-preview/dist/skin.css'
 Vue.use(preview)
-Vue.config.productionTip = false
 
 // swiper 轮播
 // import VueAwesomeSwiper from 'vue-awesome-swiper'
@@ -58,6 +57,18 @@ Vue.config.productionTip = false
 import VideoPlayer from 'vue-video-player'
 import 'video.js/dist/video-js.css'
 Vue.use(VideoPlayer)
+
+// 图片懒加载 
+import VueLazyload from 'vue-lazyload'
+
+Vue.use(VueLazyload, {
+    preLoad: 1.3, // 预加载高度的比例
+    error: require('@/assets/loading.gif'), //请求失败后显示的图片
+    loading: require('@/assets/loading.gif'), //加载的loading过渡图片
+    attempt: 1 // 加载图片数量
+})
+
+Vue.config.productionTip = false
 
 // 请求之前拦截器
 Vue.http.interceptors.push((request, next) => {　

@@ -233,3 +233,44 @@ playerOptions : {
 
 
 ```
+
+### 图片懒加载
+```
+安装依赖
+npm install vue-lazyload --save
+或
+cnpm install vue-lazyload --save
+
+配置
+main.js
+
+import VueLazyload from 'vue-lazyload'
+ 
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  error: require('@/assets/img/dou_dou.jpg'),   //请求失败后显示的图片
+  loading: require('@/assets/img/dou_dou.jpg'),   //加载的loading过渡图片
+  attempt: 1     // 加载图片数量
+})
+
+html
+<div>
+        <ul id="container">
+            <li v-for="img in list">
+                <img v-lazy="img">
+            </li>
+        </ul>
+    </div>
+
+js
+<script>
+ export default {
+    data(){
+        return{
+        imgArr: [{ imgUrl: require("../assets/imgages/1.jpg") }, ""]
+        }
+    }
+
+ }
+</script>
+```

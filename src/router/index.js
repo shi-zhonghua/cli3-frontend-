@@ -67,6 +67,8 @@ const video = () =>
     import ("@/views/video.vue");
 const waterfallEasy = () =>
     import ("@/views/waterfallEasy.vue");
+const lazy = () =>
+    import ("@/views/lazy.vue");
 
 
 Vue.use(Router)
@@ -274,6 +276,12 @@ const routes = [
             component: waterfallEasy,
             meta: {
                 title: '瀑布流'
+            }
+        }, {
+            path: '/lazy',
+            component: lazy,
+            meta: {
+                title: '图片懒加载'
             }
         }]
     }
