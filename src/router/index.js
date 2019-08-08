@@ -71,6 +71,9 @@ const lazy = () =>
     import ("@/views/lazy.vue");
 
 
+const axiosGet = () =>
+    import ("@/views/axios/get.vue")
+
 Vue.use(Router)
 
 const routes = [
@@ -282,6 +285,12 @@ const routes = [
             component: lazy,
             meta: {
                 title: '图片懒加载'
+            }
+        }, {
+            path: '/axiosGet',
+            component: axiosGet,
+            meta: {
+                title: 'axios'
             }
         }]
     }

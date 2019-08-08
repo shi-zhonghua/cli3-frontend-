@@ -5,6 +5,10 @@ import store from './vuex/store'
 /*引入资源请求插件*/
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
+
+// axios
+import axios from 'axios'
+Vue.prototype.$axios = axios
     // element-ui 插件
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';

@@ -247,17 +247,17 @@ main.js
 import VueLazyload from 'vue-lazyload'
  
 Vue.use(VueLazyload, {
-  preLoad: 1.3,
-  error: require('@/assets/img/dou_dou.jpg'),   //请求失败后显示的图片
-  loading: require('@/assets/img/dou_dou.jpg'),   //加载的loading过渡图片
-  attempt: 1     // 加载图片数量
+    preLoad: 1.3, // 预加载高度的比例
+    error: require('@/assets/loading.gif'), //请求失败后显示的图片
+    loading: require('@/assets/loading.gif'), //加载的loading过渡图片
+    attempt: 1 // 加载图片数量
 })
 
 html
 <div>
         <ul id="container">
             <li v-for="img in list">
-                <img v-lazy="img">
+                <img v-lazy="img.Url">
             </li>
         </ul>
     </div>
