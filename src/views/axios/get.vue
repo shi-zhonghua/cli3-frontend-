@@ -5,18 +5,29 @@
             <span>姓名：{{item.name}}</span>
             <label>年龄：{{item.age}}</label>
         </li>
+        {{infoApi}}
     </div>
 </template>
 
 <script>
+import {getUser} from '@/http/api/userApi.js'
 export default {
   data() {
     return {
-      info: []
+      info: [],
+      infoApi:[]
     };
   },
-  methods: {},
+  methods: {
+      getUser(){
+          getUser().then((res)=>{
+              console.log(res)
+              this.infoApi=res.data
+          })
+      }
+  },
   mounted() {
+      this.getUser();
     //get或者post , api为接口地址
     this.$axios
       .get(

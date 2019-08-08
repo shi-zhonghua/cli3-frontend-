@@ -1,159 +1,76 @@
-import Vue from 'vue'
-import VueResource from 'vue-resource'
-import stringFormat from 'string-format'
-import interceptors from './interceptors'
-import { isSuccess, getError } from './util'
-
-Vue.use(VueResource)
-
-const MAX_TIME_OUT = 60000 // 请求超时时间 60秒
-
-Vue.http.options.root = process.env.API_SERVER + process.env.API_ROOT // 后台服务器上下文路径
-Vue.http.options.timeout = MAX_TIME_OUT // 请求超时时间
-
-const URL_ENCODED_CONTENT_TYPE = 'application/x-www-form-urlencoded; charset=UTF-8'
-
-interceptors.forEach(interceptor => Vue.http.interceptors.push(interceptor))
-
-const checkStatus = response => {
-  if (isSuccess(response)) {
-    return response
-  }
-  throw getError(response)
-}
-
-const encodeData = (data = {}) => {
-  let body = ''
-  for (let key in data) {
-    body += encodeURIComponent(key) + '=' + encodeURIComponent(data[key]) + '&'
-  }
-  if (body.length) {
-    // remote the last '&'
-    body = body.substring(0, body.length - 1)
-  }
-
-  return body
-}
-
-const getData = (data, options = {}) => {
-  return options.encodeData ? encodeData(data) : data
-}
-
-const getOptions = (options = {}) => {
-  let headers = options.headers || {}
-  if (options.encodeData) {
-    headers['Content-type'] = URL_ENCODED_CONTENT_TYPE
-  }
-  return {
-    ...options,
-    headers
-  }
-}
-
-const isBlobResponseType = options => !!(options && options.responseType === 'blob')
-// 返回Promise对象
-const parseJSON = response => {
-  try {
-    if (response.status === 200 && response.body === '') {
-      return new Promise(resolve => {
-        resolve({ body: { code: 0, message: 'success' } })
-      })
+import axios from 'axios';
+import router from '../router';
+// 创建axios实例
+const service = axios.create({
+        timeout: 30000 // 请求超时时间                                   
+    })
+    // 添加request拦截器 
+service.interceptors.request.use(config => {
+        return config
+    }, error => {
+        Promise.reject(error)
+    })
+    // 添加respone拦截器
+service.interceptors.response.use(
+    response => {
+        let res = {};
+        res.status = response.status
+        res.data = response.data;
+        return res;
+    },
+    error => {
+        if (error.response && error.response.status == 404) {
+            router.push('/Home.vue')
+        }
+        return Promise.reject(error.response)
     }
-    return response.json()
-  } catch (error) {
-    console.log('parseJSON is error:' + error)
-  }
-}
-const parseBlob = response => response.blob()
-const parseBody = json => {
-  if (json && json.body !== '') {
-    return json
-  }
-  return { code: 0, message: 'success' }
+)
+
+export function get(url, params = {}) {
+    params.t = new Date().getTime(); //get方法加一个时间参数,解决ie下可能缓存问题.
+    return service({
+        url: url,
+        method: 'get',
+        headers: {},
+        params
+    })
 }
 
-export const format = (url, ...args) => stringFormat(url, ...args.map(arg => encodeURIComponent(arg)))
 
-export default {
-  postWithCallback(url, datas, cb, errorCb) {
-    return Vue.http
-      .post(url, encodeData(datas), {
+//封装post请求
+export function post(url, data = {}) {
+    //默认配置 
+    let sendObject = {
+        url: url,
+        method: 'post',
         headers: {
-          'Content-type': URL_ENCODED_CONTENT_TYPE
-        }
-      })
-      .then(checkStatus)
-      .then(parseJSON)
-      .then(function(json) {
-        if (cb) {
-          cb(json)
-        }
-      })
-      .catch(function(ex) {
-        if (errorCb) {
-          errorCb(ex)
-        }
-      })
-  },
-  post(url, datas, options) {
-    return Vue.http
-      .post(url, getData(datas), getOptions(options))
-      .then(checkStatus)
-      .then(response => {
-        return isBlobResponseType(options) ? parseBlob(response) : parseJSON(response)
-      })
-      .then(response => {
-        return isBlobResponseType(options) ? response : parseBody(response)
-      })
-  },
-  put(url, datas, options) {
-    return Vue.http
-      .put(url, getData(datas), getOptions(options))
-      .then(checkStatus)
-      .then(parseJSON)
-      .then(parseBody)
-  },
-  delete(url, datas, options = {}) {
-    const newOptions = {
-      body: getData(datas),
-      ...getOptions(options)
-    }
-    return Vue.http
-      .delete(url, newOptions)
-      .then(checkStatus)
-      .then(parseJSON)
-      .then(parseBody)
-  },
-  get(url, options = {}) {
-    const fetchHeaders = options && options.fetchHeaders
-    return Vue.http
-      .get(url, options)
-      .then(res => {
-        return res
-      })
-      .then(checkStatus)
-      .then(async response => {
-        const data = isBlobResponseType(options) ? await parseBlob(response) : await parseJSON(response)
-        if (fetchHeaders) {
-          return {
-            data,
-            headers: response.headers
-          }
-        }
-        return data
-      })
-      .then(response => {
-        if (fetchHeaders) {
-          return {
-            data: isBlobResponseType(options) ? response.data : parseBody(response.data),
-            headers: response.headers
-          }
-        }
-
-        return isBlobResponseType(options) ? response : parseBody(response)
-      })
-  },
-  jsonp(url, options = {}) {
-    return Vue.http.jsonp(url, options).then(checkStatus)
-  }
+            'Content-Type': 'application/json;charset=UTF-8'
+        },
+        data: data
+    };
+    sendObject.data = JSON.stringify(data);
+    return service(sendObject)
 }
+
+//封装put方法 (resfulAPI常用)
+export function put(url, data = {}) {
+    return service({
+        url: url,
+        method: 'put',
+        headers: {
+            'Content-Type': 'application/json;charset=UTF-8'
+        },
+        data: JSON.stringify(data)
+    })
+}
+//删除方法(resfulAPI常用)
+export function deletes(url) {
+    return service({
+        url: url,
+        method: 'delete',
+        headers: {}
+    })
+}
+
+//export
+export default service
