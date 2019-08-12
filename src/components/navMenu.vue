@@ -99,6 +99,9 @@ export default {
             },{
                 name:'图片懒加载',
                 to:'/lazy'
+            },{
+                name:'录音',
+                to:'audio'
             }]
         }
 

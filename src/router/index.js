@@ -72,7 +72,10 @@ const lazy = () =>
 
 
 const axiosGet = () =>
-    import ("@/views/axios/get.vue")
+    import ("@/views/axios/get.vue");
+
+const audio = () =>
+    import ("@/views/audio/index.vue")
 
 Vue.use(Router)
 
@@ -291,6 +294,12 @@ const routes = [
             component: axiosGet,
             meta: {
                 title: 'axios'
+            }
+        }, {
+            path: '/audio',
+            component: audio,
+            meta: {
+                title: '音频-录音'
             }
         }]
     }
