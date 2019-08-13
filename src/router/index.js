@@ -74,7 +74,10 @@ const axiosGet = () =>
 const audio = () =>
     import ("@/views/audio/index.vue");
 const mounted = () =>
-    import ("@/views/mounted.vue")
+    import ("@/views/mounted.vue");
+const infiniteScroll = () =>
+    import ("@/views/infiniteScroll.vue");
+
 
 Vue.use(Router)
 
@@ -305,6 +308,12 @@ const routes = [
             component: mounted,
             meta: {
                 title: '生命周期'
+            }
+        }, {
+            path: '/infiniteScroll',
+            component: infiniteScroll,
+            meta: {
+                title: '滚动加载'
             }
         }]
     }

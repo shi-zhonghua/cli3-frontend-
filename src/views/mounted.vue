@@ -1,5 +1,4 @@
 <template>
-import { constants } from 'fs';
     <div>
         {{msg}}
     </div>

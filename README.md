@@ -1,4 +1,5 @@
-# project 
+# project
+
 ```
 
     vue-cli3
@@ -14,23 +15,26 @@
 
 ```
 
-## 使用npm install安装所有的依赖 
+## 使用 npm install 安装所有的依赖
+
 ```
 npm install
 ```
 
 ### 本地开发项目运行
+
 ```
-npm run serve 
+npm run serve
 ```
 
 ### 打包压缩
+
 ```
 npm run build
 ```
 
-
 ##项目结构说明
+
 ```
 －－vue.config.js配置文件
 －－mock  模拟数据
@@ -40,9 +44,11 @@ npm run build
 	－－views 视图组件
 	－－router 路由器
 	－－vuex  数据管理
-			
+
 ```
-##git提交流程
+
+##git 提交流程
+
 ```
 git status -s 查看当前仓库状态
 1.代码格式化:npm run precommit  代码格式化
@@ -52,15 +58,18 @@ git status -s 查看当前仓库状态
 5.git push origin master   提交本地代码到git仓库
 
 ```
+
 ### Customize configuration
+
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ##百度地图使用
+
 ```
 1. 百度官网申请秘钥
-2. 在index.html 引入js 
+2. 在index.html 引入js
    <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=自己的秘钥"></script>
-3. 在vue.config.js的配置文件里加上 
+3. 在vue.config.js的配置文件里加上
     configureWebpack: {
         //百度地图
         externals: {
@@ -72,7 +81,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 复制文本功能
 1、npm install clipboard --save
-2、在main.js 添加 
+2、在main.js 添加
 import clipboard from 'clipboard';
 //注册到vue原型上
 Vue.prototype.clipboard = clipboard;
@@ -101,7 +110,9 @@ copy(index) {
             })
         }
 ```
+
 ##骨架屏
+
 ```
 
 npm install vue-skeleton-component --save-dev
@@ -171,13 +182,14 @@ options     设置项     Object  null
 -rules  出现规则，这里不可以跨行切必须相邻   String  'a, b, ... i'
 -childrenOption     设置子组件类型     Array[Object]   []
 ```
+
 ### 视频使用方法
 
 ```
 视频使用
 安装依赖 npm install vue-video-player -S
 
-main.js 
+main.js
 // 1.全局引用
 import VueVideoPlayer from 'vue-video-player'
 import 'video.js/dist/video-js.css'
@@ -235,6 +247,7 @@ playerOptions : {
 ```
 
 ### 图片懒加载
+
 ```
 安装依赖
 npm install vue-lazyload --save
@@ -245,7 +258,7 @@ cnpm install vue-lazyload --save
 main.js
 
 import VueLazyload from 'vue-lazyload'
- 
+
 Vue.use(VueLazyload, {
     preLoad: 1.3, // 预加载高度的比例
     error: require('@/assets/loading.gif'), //请求失败后显示的图片
@@ -273,4 +286,47 @@ js
 
  }
 </script>
+```
+
+### 滚动无限加载
+
+```
+安装依赖：npm install vue-infinite-scroll --save
+
+在main.js入口文件里面引入
+
+import infiniteScroll from 'vue-infinite-scroll'
+Vue.use(infiniteScroll)
+
+html
+<div class="scroll">
+    <div class="content">
+        <ul v-if="data.length>0">
+            <li v-for="item in data">{{item}}</li>
+        </ul>
+    </div>
+    <div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10">
+  可以为加载中提示语或加载中图片
+    </div>
+</div>
+
+js
+data(){
+    return{
+        data:[]
+        busy:false // 等于true时代表正在执行加载，这时禁用滚动触发。
+    }
+}
+methods:{
+     loadMore() {
+            this.buzy = true
+            setTimeout(() => {
+                for (var i = 0, j = 10; i < j; i++) {
+                   this.data.push(i)
+                }
+                this.busy = false
+            }, 500)
+            
+        }
+}
 ```

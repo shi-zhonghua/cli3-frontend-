@@ -105,6 +105,9 @@ export default {
             },{
                 name:'生命周期',
                 to:'/mounted'
+            },{
+                name:'滚动加载',
+                to:'/infiniteScroll'
             }]
         }
 
