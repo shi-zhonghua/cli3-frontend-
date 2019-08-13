@@ -101,7 +101,10 @@ export default {
                 to:'/lazy'
             },{
                 name:'录音',
-                to:'audio'
+                to:'/audio'
+            },{
+                name:'生命周期',
+                to:'/mounted'
             }]
         }
 

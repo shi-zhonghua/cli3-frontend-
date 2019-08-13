@@ -69,13 +69,12 @@ const waterfallEasy = () =>
     import ("@/views/waterfallEasy.vue");
 const lazy = () =>
     import ("@/views/lazy.vue");
-
-
 const axiosGet = () =>
     import ("@/views/axios/get.vue");
-
 const audio = () =>
-    import ("@/views/audio/index.vue")
+    import ("@/views/audio/index.vue");
+const mounted = () =>
+    import ("@/views/mounted.vue")
 
 Vue.use(Router)
 
@@ -300,6 +299,12 @@ const routes = [
             component: audio,
             meta: {
                 title: '音频-录音'
+            }
+        }, {
+            path: '/mounted',
+            component: mounted,
+            meta: {
+                title: '生命周期'
             }
         }]
     }
