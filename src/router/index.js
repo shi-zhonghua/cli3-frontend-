@@ -77,7 +77,8 @@ const mounted = () =>
     import ("@/views/mounted.vue");
 const infiniteScroll = () =>
     import ("@/views/infiniteScroll.vue");
-
+const regula = () =>
+    import ("@/views/regula.vue");
 
 Vue.use(Router)
 
@@ -314,6 +315,12 @@ const routes = [
             component: infiniteScroll,
             meta: {
                 title: '滚动加载'
+            }
+        }, {
+            path: '/regula',
+            component: regula,
+            meta: {
+                title: '正则'
             }
         }]
     }

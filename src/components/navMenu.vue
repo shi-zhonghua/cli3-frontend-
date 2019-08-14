@@ -108,6 +108,9 @@ export default {
             },{
                 name:'滚动加载',
                 to:'/infiniteScroll'
+            },{
+                name:'正则表达式',
+                to:'/regula'
             }]
         }
 
