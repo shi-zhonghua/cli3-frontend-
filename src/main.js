@@ -2,7 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index'
 import store from './vuex/store'
-/*引入资源请求插件*/
+// 自定义全局组件
+import loading from './common/vue-loading/index.js'
+
+Vue.use(loading)
+    /*引入资源请求插件*/
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
 
