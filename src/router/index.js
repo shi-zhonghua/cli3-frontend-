@@ -105,7 +105,15 @@ const routes = [
                 component: home,
                 meta: {
                     title: 'home'
-                }
+                },
+                // 单独路由独享执行的钩子函数
+                beforeEnter(to, from, next) {
+                    if (to.path != '/') {
+                        console.log(to)
+                        console.log("单独路由独享钩子函数")
+                    }
+                    next();
+                },
             }, {
                 path: '/baiduMap',
                 component: baiduMap,
@@ -355,6 +363,7 @@ router.afterEach((to, from) => {
     window.document.title = to.meta.title
         // this.$store.commit('hideLoading', { LOADING: false })
 })
+
 
 
 export default router

@@ -17,7 +17,7 @@
         <el-button type="primary" class="sub-btn" @click="cur">获取return键</el-button>
         <router-link to="/About">About</router-link>
 
-        <loading >
+        <loading>
             <span slot="message">全局封装组件--暂无优惠券</span>
         </loading>
 
@@ -44,6 +44,28 @@ export default {
       inserted: function(el) {
         el.focus();
       }
+    }
+  },
+  //  从另外的组件进入该组件前触发该钩子
+  beforeRouteEnter(to, from, next) {
+    console.log("todo before enter");
+    console.log(this); // 这里获取不到上下文
+    next(vm => {
+      // next里面有一个回到函数可以获取到上下文，把请求到的数据塞到vue对象中
+    //   console.log(vm);
+     
+    });
+  },
+  //  同一个组件，param不同的是触发,常用与同一个组件当传入不通参数时，展示不同的数据
+  beforeRouteUpdate(to, from, next) {
+    console.log("todo update enter");
+    next();
+  },
+  //  该组件离开跳转到另外的组件时触发该钩子,常应用于用户表单，当用户填了一部分内容，需要提醒用户是否离开页面
+  beforeRouteLeave(to, from, next) {
+    console.log("todo leave enter");
+    if (global.confirm("are you sure")) {
+      next();
     }
   },
   data() {
