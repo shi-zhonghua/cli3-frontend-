@@ -83,253 +83,266 @@ const regula = () =>
 Vue.use(Router)
 
 const routes = [
-    // {
-    //     path: '/',
-    //     name: 'home',
-    //     component: Home
-    // },
-    // {
-    //     path: '/about',
-    //     name: 'about',
-    //     // route level code-splitting
-    //     // this generates a separate chunk (about.[hash].js) for this route
-    //     // which is lazy-loaded when the route is visited.
-    //     component: () => import( /* webpackChunkName: "about" */ './views/About.vue')
-    // }
-    {
-        path: '/',
-        component: layout,
-        redirect: home,
-        children: [{
+        // {
+        //     path: '/',
+        //     name: 'home',
+        //     component: Home
+        // },
+        // {
+        //     path: '/about',
+        //     name: 'about',
+        //     // route level code-splitting
+        //     // this generates a separate chunk (about.[hash].js) for this route
+        //     // which is lazy-loaded when the route is visited.
+        //     component: () => import( /* webpackChunkName: "about" */ './views/About.vue')
+        // }
+        {
             path: '/',
-            component: home,
-            meta: {
-                title: 'home'
-            }
-        }, {
-            path: '/baiduMap',
-            component: baiduMap,
-            meta: {
-                title: '百度地图'
-            }
-        }, {
-            path: '/about',
-            component: about,
-            meta: {
-                title: 'about'
-            }
-        }, {
-            path: '/ciyun',
-            component: ciyun,
-            meta: {
-                title: 'ciyun'
-            }
-        }, {
-            path: '/echarts',
-            component: echarts,
-            meta: {
-                title: 'echarts'
-            }
-        }, {
-            path: '/city',
-            component: city,
-            meta: {
-                title: 'city'
-            }
-        }, {
-            path: '/city2',
-            component: city2,
-            meta: {
-                title: 'city2'
-            }
-        }, {
-            path: '/event',
-            component: event,
-            meta: {
-                title: 'event'
-            }
-        }, {
-            path: '/lodash',
-            component: lodash,
-            meta: {
-                title: 'lodash'
-            }
-        }, {
-            path: '/card',
-            component: card,
-            meta: {
-                title: 'card'
-            }
-        }, {
-            path: '/promise',
-            component: promise,
-            meta: {
-                title: 'promise'
-            }
-        }, {
-            path: '/iconfont',
-            component: iconfont,
-            meta: {
-                title: 'iconfont'
-            }
-        }, {
-            path: '/enzh',
-            component: enzh,
-            meta: {
-                title: '中英文'
-            }
-        }, {
-            path: '/xiazai',
-            component: xiazai,
-            meta: {
-                title: '下载'
-            }
-        }, {
-            path: '/erweima',
-            component: erweima,
-            meta: {
-                title: '二维码'
-            }
-        }, {
-            path: '/flex',
-            component: flex,
-            meta: {
-                title: 'flex布局'
-            }
-        }, {
-            path: '/filter',
-            component: filter,
-            meta: {
-                title: '过滤器'
-            }
-        }, {
-            path: '/photo',
-            component: photo,
-            meta: {
-                title: '图片放大'
-            }
-        }, {
-            path: '/emit',
-            component: emit,
-            meta: {
-                title: '父与子传值'
-            }
-        }, {
-            path: '/freeTreeMenu',
-            component: freeTreeMenu,
-            meta: {
-                title: '树形结构'
-            }
-        }, {
-            path: '/top',
-            component: top,
-            meta: {
-                title: '返回顶部'
-            }
-        }, {
-            path: '/transition',
-            component: transition,
-            meta: {
-                title: '过渡/动画'
-            }
-        }, {
-            path: '/watch',
-            component: watch,
-            meta: {
-                title: '监测'
-            }
-        }, {
-            path: '/fenye',
-            component: fenye,
-            meta: {
-                title: ''
-            }
-        }, {
-            path: '/number',
-            component: number,
-            meta: {
-                title: ''
-            }
-        }, {
-            path: '/webMap',
-            component: webMap,
-            meta: {
-                title: '地图导航'
-            }
-        }, {
-            path: '/copy',
-            component: copy,
-            meta: {
-                title: '复制文本'
-            }
-        }, {
-            path: '/mapApp',
-            component: mapApp,
-            meta: {
-                title: '导航'
-            }
-        }, {
-            path: '/swiper',
-            component: swiper,
-            meta: {
-                title: '轮播'
-            }
-        }, {
-            path: '/video',
-            component: video,
-            meta: {
-                title: '视频'
-            }
-        }, {
-            path: '/waterfallEasy',
-            component: waterfallEasy,
-            meta: {
-                title: '瀑布流'
-            }
-        }, {
-            path: '/lazy',
-            component: lazy,
-            meta: {
-                title: '图片懒加载'
-            }
-        }, {
-            path: '/axiosGet',
-            component: axiosGet,
-            meta: {
-                title: 'axios'
-            }
-        }, {
-            path: '/audio',
-            component: audio,
-            meta: {
-                title: '音频-录音'
-            }
-        }, {
-            path: '/mounted',
-            component: mounted,
-            meta: {
-                title: '生命周期'
-            }
-        }, {
-            path: '/infiniteScroll',
-            component: infiniteScroll,
-            meta: {
-                title: '滚动加载'
-            }
-        }, {
-            path: '/regula',
-            component: regula,
-            meta: {
-                title: '正则'
-            }
-        }]
-    }
-]
+            component: layout,
+            redirect: home,
+            children: [{
+                path: '/',
+                component: home,
+                meta: {
+                    title: 'home'
+                }
+            }, {
+                path: '/baiduMap',
+                component: baiduMap,
+                meta: {
+                    title: '百度地图'
+                }
+            }, {
+                path: '/about',
+                component: about,
+                meta: {
+                    title: 'about'
+                }
+            }, {
+                path: '/ciyun',
+                component: ciyun,
+                meta: {
+                    title: 'ciyun'
+                }
+            }, {
+                path: '/echarts',
+                component: echarts,
+                meta: {
+                    title: 'echarts'
+                }
+            }, {
+                path: '/city',
+                component: city,
+                meta: {
+                    title: 'city'
+                }
+            }, {
+                path: '/city2',
+                component: city2,
+                meta: {
+                    title: 'city2'
+                }
+            }, {
+                path: '/event',
+                component: event,
+                meta: {
+                    title: 'event'
+                }
+            }, {
+                path: '/lodash',
+                component: lodash,
+                meta: {
+                    title: 'lodash'
+                }
+            }, {
+                path: '/card',
+                component: card,
+                meta: {
+                    title: 'card'
+                }
+            }, {
+                path: '/promise',
+                component: promise,
+                meta: {
+                    title: 'promise'
+                }
+            }, {
+                path: '/iconfont',
+                component: iconfont,
+                meta: {
+                    title: 'iconfont'
+                }
+            }, {
+                path: '/enzh',
+                component: enzh,
+                meta: {
+                    title: '中英文'
+                }
+            }, {
+                path: '/xiazai',
+                component: xiazai,
+                meta: {
+                    title: '下载'
+                }
+            }, {
+                path: '/erweima',
+                component: erweima,
+                meta: {
+                    title: '二维码'
+                }
+            }, {
+                path: '/flex',
+                component: flex,
+                meta: {
+                    title: 'flex布局'
+                }
+            }, {
+                path: '/filter',
+                component: filter,
+                meta: {
+                    title: '过滤器'
+                }
+            }, {
+                path: '/photo',
+                component: photo,
+                meta: {
+                    title: '图片放大'
+                }
+            }, {
+                path: '/emit',
+                component: emit,
+                meta: {
+                    title: '父与子传值'
+                }
+            }, {
+                path: '/freeTreeMenu',
+                component: freeTreeMenu,
+                meta: {
+                    title: '树形结构'
+                }
+            }, {
+                path: '/top',
+                component: top,
+                meta: {
+                    title: '返回顶部'
+                }
+            }, {
+                path: '/transition',
+                component: transition,
+                meta: {
+                    title: '过渡/动画'
+                }
+            }, {
+                path: '/watch',
+                component: watch,
+                meta: {
+                    title: '监测'
+                }
+            }, {
+                path: '/fenye',
+                component: fenye,
+                meta: {
+                    title: ''
+                }
+            }, {
+                path: '/number',
+                component: number,
+                meta: {
+                    title: ''
+                }
+            }, {
+                path: '/webMap',
+                component: webMap,
+                meta: {
+                    title: '地图导航'
+                }
+            }, {
+                path: '/copy',
+                component: copy,
+                meta: {
+                    title: '复制文本'
+                }
+            }, {
+                path: '/mapApp',
+                component: mapApp,
+                meta: {
+                    title: '导航'
+                }
+            }, {
+                path: '/swiper',
+                component: swiper,
+                meta: {
+                    title: '轮播'
+                }
+            }, {
+                path: '/video',
+                component: video,
+                meta: {
+                    title: '视频'
+                }
+            }, {
+                path: '/waterfallEasy',
+                component: waterfallEasy,
+                meta: {
+                    title: '瀑布流'
+                }
+            }, {
+                path: '/lazy',
+                component: lazy,
+                meta: {
+                    title: '图片懒加载'
+                }
+            }, {
+                path: '/axiosGet',
+                component: axiosGet,
+                meta: {
+                    title: 'axios'
+                }
+            }, {
+                path: '/audio',
+                component: audio,
+                meta: {
+                    title: '音频-录音'
+                }
+            }, {
+                path: '/mounted',
+                component: mounted,
+                meta: {
+                    title: '生命周期'
+                }
+            }, {
+                path: '/infiniteScroll',
+                component: infiniteScroll,
+                meta: {
+                    title: '滚动加载'
+                }
+            }, {
+                path: '/regula',
+                component: regula,
+                meta: {
+                    title: '正则'
+                }
+            }],
 
+        }
+    ]
+    // 滚动条位置设置
+const scrollBehavior = function(to, from, savedPosition) {
+    // savedPosition 会在你使用浏览器前进或后退按钮时候生效
+    // 这个跟你使用 router.go() 或 router.back() 效果一致
+    // 这也是为什么我在 tab 栏结构中放入了一个 点击回退 的按钮
+    if (savedPosition) {
+        return savedPosition
+    } else {
+        // 如果不是通过上述行为切换组件，就会让页面回到顶部
+        return { x: 0, y: 0 }
+    }
+}
 const router = new Router({
         mode: 'history',
         base: process.env.BASE_URL,
-        routes
+        routes,
+        scrollBehavior
     })
     // 路由跳转前的钩子
 router.beforeEach(function(to, from, next) {
