@@ -71,6 +71,8 @@ const lazy = () =>
     import ("@/views/lazy.vue");
 const axiosGet = () =>
     import ("@/views/axios/get.vue");
+const access = () =>
+    import ("@/views/axios/access.vue");
 const audio = () =>
     import ("@/views/audio/index.vue");
 const mounted = () =>
@@ -305,6 +307,12 @@ const routes = [
                 component: axiosGet,
                 meta: {
                     title: 'axios'
+                }
+            }, {
+                path: '/access',
+                component: access,
+                meta: {
+                    title: 'access'
                 }
             }, {
                 path: '/audio',
