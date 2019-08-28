@@ -53,16 +53,16 @@ module.exports = {
         port: 8888, // 端口号
         https: false,
         hotOnly: false, // 热更新
-        // proxy: null, // 设置代理 配置自动启动浏览器
-        proxyTable: {
-            '/api': {
-                target: 'http://api.douban.com/v2', // 你请求的第三方接口
-                changeOrigin: true, // 在本地会创建一个虚拟服务端，然后发送请求的数据，并同时接收请求的数据，这样服务端和服务端进行数据的交互就不会有跨域问题
-                pathRewrite: { // 路径重写，
-                    '^/api': '' // 替换target中的请求地址，也就是说以后你在请求http://api.douban.com/v2/XXXXX这个地址的时候直接写成/api即可。
-                }
-            }
-        },
+        proxy: null, // 设置代理 配置自动启动浏览器
+        // proxyTable: {
+        //     '/api': {
+        //         target: 'http://api.douban.com/v2', // 你请求的第三方接口
+        //         changeOrigin: true, // 在本地会创建一个虚拟服务端，然后发送请求的数据，并同时接收请求的数据，这样服务端和服务端进行数据的交互就不会有跨域问题
+        //         pathRewrite: { // 路径重写，
+        //             '^/api': '' // 替换target中的请求地址，也就是说以后你在请求http://api.douban.com/v2/XXXXX这个地址的时候直接写成/api即可。
+        //         }
+        //     }
+        // },
         before: app => {}
             // overlay: {
             //     warnings: false,

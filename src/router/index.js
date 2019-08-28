@@ -69,7 +69,7 @@ const waterfallEasy = () =>
     import ("@/views/waterfallEasy.vue");
 const lazy = () =>
     import ("@/views/lazy.vue");
-const axiosGet = () =>
+const get = () =>
     import ("@/views/axios/get.vue");
 const access = () =>
     import ("@/views/axios/access.vue");
@@ -303,8 +303,8 @@ const routes = [
                     title: '图片懒加载'
                 }
             }, {
-                path: '/axiosGet',
-                component: axiosGet,
+                path: '/get',
+                component: get,
                 meta: {
                     title: 'axios'
                 }

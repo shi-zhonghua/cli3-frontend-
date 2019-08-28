@@ -1,5 +1,5 @@
 <template>
-    <div class="loading" >
+    <div class="loading" v-if="this.$store.state.LOADING" >
         <img src="../assets/loading.gif" alt=""/>
   </div>
 </template>

@@ -13,6 +13,7 @@ Service.interceptors.request.use(config => {
     // 添加respone拦截器
 Service.interceptors.response.use(
     response => {
+
         let res = {};
         res.status = response.status
         res.data = response.data;

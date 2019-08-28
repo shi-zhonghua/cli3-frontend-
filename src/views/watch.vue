@@ -2,10 +2,19 @@
     <div>
         路由监控 {{cityName}}
         <span @click="handle" ref="span">上海</span>
-        <barrager/>
+        <!-- <barrager/> -->
+
+        <li v-for="(item,index) in listData" :key="index">
+            {{item}}
+        </li>
+        <li v-for="(item,index) in listFilterData" >
+            {{item}}
+        </li>
+
     </div>
 </template>
 <script>
+import _ from 'lodash';
 import barrager from "./barrager.vue";
 export default {
   components: {
@@ -14,8 +23,27 @@ export default {
   data() {
     return {
       cityName: "北京",
-      age: 1
+      age: 1,
+      listData: [
+        {
+          id: 1,
+          flag: false,
+          name: "张三"
+        },
+        {
+          id: 2,
+          flag: true,
+          name: "张三三"
+        }
+      ]
     };
+  },
+  computed: {
+    listFilterData() {
+      return this.listData.filter(data => {
+        return data.flag;
+      });
+    }
   },
   watch: {
     // $route(to, from) {
@@ -39,7 +67,7 @@ export default {
       handler: function(val, oldVal) {
         console.log("new d: %s, old: %s", val, oldVal);
       },
-      deep:true,
+      deep: true,
       immediate: true
     }
   },
