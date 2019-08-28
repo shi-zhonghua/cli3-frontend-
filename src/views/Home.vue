@@ -21,6 +21,8 @@
             <span slot="message">全局封装组件--暂无优惠券</span>
         </loading>
         添加点内容
+        加点内容
+        再加点内容
     </div>
 </template>
 <script>
