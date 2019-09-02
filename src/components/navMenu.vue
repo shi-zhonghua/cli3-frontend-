@@ -111,6 +111,9 @@ export default {
             },{
                 name:'正则表达式',
                 to:'/regula'
+            },{
+                name:'路由嵌套',
+                to:'/viewIndex'
             }]
         }
 

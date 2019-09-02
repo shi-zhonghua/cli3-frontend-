@@ -11,9 +11,9 @@ export default {
     };
   },
   methods: {
-    show() {
-      console.log(this.msg);
-    }
+    // show() {
+    //   console.log(this.msg);
+    // }
   },
   // 生命周期函数
   beforeCreate() {
@@ -23,7 +23,7 @@ export default {
     // 注意： 在 beforeCreate 生命周期函数执行的时候，data 和 methods 中的 数据都还没有没初始化
 
     console.log("beforCreate ");
-    this.show(); // methods 中的方法还没有初始化
+    //this.show(); // methods 中的方法还没有初始化
     console.log(this.msg); // undefined
   },
   created() {
