@@ -1,5 +1,9 @@
 <template>
     <div class="about">
+        <p>
+            接收url 参数
+            {{this.$route.query.userName}}
+        </p>
         <h1>This is an about page</h1>
         <input v-focus /> 
     </div>

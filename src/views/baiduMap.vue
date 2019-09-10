@@ -1,5 +1,9 @@
 <template>
     <div>
+       <p>
+           获取参数：
+          {{ this.$route.params.id}}
+       </p>
         百度地图
         <p>当前城市：{{LocationCity}}</p>
         经度：{{lng}}

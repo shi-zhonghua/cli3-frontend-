@@ -126,7 +126,7 @@ const routes = [
                         next();
                     },
                 }, {
-                    path: '/baiduMap',
+                    path: '/baiduMap/:id',
                     component: baiduMap,
                     meta: {
                         title: '百度地图'

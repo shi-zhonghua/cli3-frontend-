@@ -20,9 +20,8 @@
         <loading>
             <span slot="message">全局封装组件--暂无优惠券</span>
         </loading>
-        添加点内容
-        加点内容
-        再加点内容
+        <el-button @click="userDetails">路由跳转带参数</el-button>
+        <el-button @click="router">路由跳转？拼接参数</el-button>
     </div>
 </template>
 <script>
@@ -54,8 +53,7 @@ export default {
     console.log(this); // 这里获取不到上下文
     next(vm => {
       // next里面有一个回到函数可以获取到上下文，把请求到的数据塞到vue对象中
-    //   console.log(vm);
-     
+      //   console.log(vm);
     });
   },
   //  同一个组件，param不同的是触发,常用与同一个组件当传入不通参数时，展示不同的数据
@@ -74,7 +72,9 @@ export default {
     return {
       yearArr: [],
       driver: null,
-      isSkeleton: true
+      isSkeleton: true,
+      id: 1,
+      userName:'admin'
     };
   },
   created() {
@@ -116,6 +116,14 @@ export default {
   },
 
   methods: {
+    // 带参数跳转路由
+    userDetails() {
+      this.$router.push("/baiduMap/" + this.id);
+    },
+    // ? 拼接参数
+    router() {
+      this.$router.push({path:'/About',query:{userName:this.userName}});
+    },
     random() {
       let token = [];
       for (let i = 0; i < 10; i++) {
