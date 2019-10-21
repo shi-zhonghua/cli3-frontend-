@@ -5,11 +5,22 @@
             {{this.$route.query.userName}}
         </p>
         <h1>This is an about page</h1>
-        <input v-focus /> 
+        <input v-focus />
+        {{city}}
+        {{cstate}}
+        {{city}}
     </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 export default {
+    computed: {
+        city() {
+            return this.$store.state.currentCity;
+        },
+        ...mapState(['cstate'])
+    },
+
     directives: { // 指令的定义
         focus: {
 
@@ -17,14 +28,14 @@ export default {
             //参数： binding 是一个对象，包含以下属性 name,value 
 
             //bind :只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置
-        	bind(el,binding){
-        		console.log(el);
+            bind(el, binding) {
+                console.log(el);
                 console.log(binding);
                 console.log(binding.name);
-        		console.log(binding.value);
-        	},
+                console.log(binding.value);
+            },
             //被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)
-            inserted: function(el,binding) { // 获得焦点
+            inserted: function(el, binding) { // 获得焦点
                 el.focus();
                 console.log(binding)
                 console.log(binding.name)

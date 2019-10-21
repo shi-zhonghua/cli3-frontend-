@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         LOADING: false,
-        currentCity: '北京'
+        currentCity: '北京',
+        cstate:'开'
     },
 
     actions: {
