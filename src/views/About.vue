@@ -8,7 +8,6 @@
         <input v-focus />
         {{city}}
         {{cstate}}
-        {{city}}
     </div>
 </template>
 <script>

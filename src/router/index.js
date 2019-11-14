@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import store from '@/vuex/store.js'
+// import store from '@/vuex/store.js'
 // import Home from './views/Home.vue'
 
 const layout = () =>
@@ -90,6 +90,8 @@ const page1 = () =>
 
 const page2 = () =>
     import ("@/views/view/page2.vue");
+
+
 
 Vue.use(Router)
 
@@ -368,6 +370,7 @@ const routes = [
                     ]
 
                 }
+
             ],
 
         }
@@ -385,7 +388,7 @@ const scrollBehavior = function(to, from, savedPosition) {
     }
 }
 const router = new Router({
-        mode: 'history',
+        mode: 'hash',
         base: process.env.BASE_URL,
         routes,
         scrollBehavior
@@ -398,7 +401,8 @@ router.beforeEach(function(to, from, next) {
     })
     // 路由跳转后的钩子
 router.afterEach((to, from) => {
-    window.document.title = to.meta.title
+    window.document.title = to.meta.title;
+    console.log(from)
         // this.$store.commit('hideLoading', { LOADING: false })
 })
 
