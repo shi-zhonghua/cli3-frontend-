@@ -21,9 +21,9 @@ export default {
         return {
             city: '',
             cityArr: {
-                province: '',
-                city: '',
-                area: ''
+                province: '',//省
+                city: '', //市
+                area: '' // 区
             }
         }
     },

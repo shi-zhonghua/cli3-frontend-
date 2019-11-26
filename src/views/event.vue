@@ -60,9 +60,9 @@ export default {
     };
   },
   mounted() {
-    this.$nextTick(function() {
-      window.addEventListener("scroll", this.onScroll);
-    });
+    // this.$nextTick(function() {
+    //   window.addEventListener("scroll", this.onScroll);
+    // });
   },
   methods: {
     changeAcitve(index) {
