@@ -332,6 +332,8 @@ methods:{
 ```
 ```
 1、创建一个dev 分支  命令：git checkout -b dev
-sdfsdfsdf  dsdfsdf
 
+dev 分支添加内容
+修改dev 分支内容
+合并dev 分支内容 到 master 分支上
 ```
