@@ -5,6 +5,7 @@
         </p>
         <h1>This is an about page</h1>
         <input v-focus /> {{city}} {{cstate}}
+        是发送到发
     </div>
 </template>
 <script>
