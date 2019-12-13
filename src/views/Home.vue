@@ -16,10 +16,12 @@
         {{yearArr}}<br />
         <el-button type="primary" class="sub-btn" @click="cur">获取return键</el-button>
         <router-link to="/About">About</router-link>
+        <dev-index/>
     </div>
 </template>
 <script>
 import HelloWorld from "@/components/HelloWorld.vue";
+import devIndex from './dev_index.vue'
 import { sessionStorageApi, localStorageApi } from "@/utils/storageApi.js";
 
 // 添加引导步骤
@@ -31,7 +33,8 @@ import steps from "./guide"
 export default {
     name: "home",
     components: {
-        HelloWorld
+        HelloWorld,
+        devIndex
     },
     directives: {
         focus: {

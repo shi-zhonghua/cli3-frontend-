@@ -4,13 +4,13 @@
 
 <script>
 export default {
+    name:'dev_index',
     data(){
         return {
 
         }
     },
     mounted(){
-
     },
     methods:{
 
