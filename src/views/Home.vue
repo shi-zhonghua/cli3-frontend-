@@ -15,22 +15,12 @@
         {{yearArr}}<br />
         <el-button type="primary" class="sub-btn" @click="cur">获取return键</el-button>
         <router-link to="/About">About</router-link>
-        <loading>
-            <span slot="message">全局封装组件--暂无优惠券</span>
-        </loading>
-        <el-button @click="userDetails">路由跳转带参数</el-button>
-        <el-button @click="router">路由跳转？拼接参数</el-button>
-        <div>{{fullName1}}</div>
-        {{fullName3}}
-        <el-menu :default-active="this.$router.path"  class="el-menu-vertical-demo" @select="menuSelected" background-color="#F0F6F6" text-color="#3C3F41" active-text-color="black" :collapse="isCollapse" router >
-            <!--加上router 才能实现跳转-->
-            <menuList :navMenus="leftMenus.childs"></menuList>
-        </el-menu>
+        <dev-index/>
     </div>
 </template>
 <script>
 import HelloWorld from "@/components/HelloWorld.vue";
-import menuList from "@/views/menuList.vue";
+import devIndex from './dev_index.vue'
 import { sessionStorageApi, localStorageApi } from "@/utils/storageApi.js";
 
 // 添加引导步骤
@@ -44,7 +34,7 @@ export default {
 
     components: {
         HelloWorld,
-        menuList
+        devIndex
     },
     directives: {
         focus: {
