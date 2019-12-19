@@ -2,6 +2,7 @@
     <div>
         <p v-for="(item,index) in list" :key="index">{{item}}</p>
         <div>tiaj</div>
+        <div>联系切换分支，总是出错</div>
     </div>
 </template>
 
