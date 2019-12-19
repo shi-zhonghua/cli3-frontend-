@@ -1,6 +1,7 @@
 <template>
     <div>
         <p v-for="(item,index) in list" :key="index">{{item}}</p>
+        <div>tiaj</div>
     </div>
 </template>
 
