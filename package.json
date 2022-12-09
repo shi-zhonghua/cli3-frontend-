@@ -38,7 +38,7 @@
     "babel-eslint": "^10.0.2",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.2.3",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "vue-resource": "^1.5.1",
